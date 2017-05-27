@@ -1,0 +1,12 @@
+delim:
+      0x7E
+packets:
+      0x0006:
+          in_type: string
+          out_type: int64
+          length: 8
+
+      0x8000:
+          in_type: string
+          out_type: string
+          length: 16

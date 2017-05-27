@@ -19,18 +19,21 @@ func Connect() {
 		MaxMessageSize: 2048,
 		Address:        buffstreams.FormatAddress("127.0.0.1", strconv.Itoa(6000)),
 	}
-	name := "Client"
+	/*name := "Client"
 	date := time.Now().UnixNano()
 	data := "This is an intenntionally long and rambling sentence to pad out the size of the message."
 	msg := &message.Note{Name: &name, Date: &date, Comment: &data}
 	msgBytes, err := proto.Marshal(msg)
 	if err != nil {
 		log.Print(err)
-	}
+	}*/
 	btw, err := buffstreams.DialTCP(cfg)
 	if err != nil {
 		log.Fatal(err)
 	}
+	var msgBytes []byte
+	msgBytes = []byte{0x7e,0x00,0x2a,0x34,0x30,0x36,0x37,0x38,0x33,0x32,0x30,0x31,0x36,0x30,0x31,0x32,0x32,0x31,0x38,0x35,0x30,0x33,0x34,0xf3,0x00,0x00,0x00,0x00,0x06,0x05,0x01,0x03,0x00,0xff,0x03,0x00,0xff,0x03,0x00,0xff,0x03,0x00,0xff,0x03,0x00}
+	fmt.Print(msgBytes)
 	_, err = btw.Write(msgBytes)
 	if err != nil {
 		log.Print("There was an error")
