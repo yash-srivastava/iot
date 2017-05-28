@@ -15,7 +15,7 @@ func ParseInputPackets(conn *buffstreams.Client)  {
 	fmt.Print("called")
 	string_data := convert(conn.Data)
 	fmt.Print(string_data)
-	parser.Wrap(string_data)
+	parser.Wrap(conn.Data)
 	name := "Server"
 	date := time.Now().UnixNano()
 	data := "Reply from Server"

@@ -5,6 +5,8 @@ import (
 	"strconv"
 	//"log"
 	"fmt"
+	"reflect"
+	"encoding/binary"
 	"strings"
 )
 
@@ -44,52 +46,158 @@ type data struct {
 
 var string_packet string
 
-func Wrap(input interface{})map[string]interface{} {
-	var ok bool
-	string_packet,ok = input.(string)
-	if !ok{
-		fmt.Print("Not A Valid Packet")
-	}
+func Wrap(input []byte)map[string]interface{} {
 	smap := make(map[string]int)
 	smap["swap8"] = 8
 	smap["swap16"] = 16
 	smap["swap32"] = 32
-	packet_data := strings.Split(string_packet,",")
+	packet_data := input
 
 	packet_config := GetConf()
 
 	delim,_ := packet_config["delim"].(int)
 
-	val,_ := strconv.Atoi(packet_data[0])
+	byte_arr :=preparePacket(packet_data[0:1])
+
+	fmt.Print("data=>",byte_arr)
+	val:= int(binary.BigEndian.Uint32(byte_arr))
 	if val != delim{
-		fmt.Print("Failed To Match Start Delim")
+		fmt.Print("Failed To Match Start Delim=>",val," ppp=>",delim)
 		return nil
 	}
 
-	packet_length,_ := strconv.Atoi(readPacket(packet_data,1,2))
+	byte_arr = preparePacket(packet_data[1:3])
+	fmt.Print("data=>",byte_arr)
+	packet_length := int(binary.BigEndian.Uint32(byte_arr))
 
 	fmt.Print("length=>",packet_length)
 
-	sgu_id,_ := strconv.Atoi(readPacket(packet_data,3,8))
+	byte_arr = preparePacket8(packet_data[3:9])
+	sgu_id := (binary.BigEndian.Uint64(byte_arr))
 
 	fmt.Print("sgu_id=>",sgu_id)
 
-	timestamp,_ := strconv.Atoi(readPacket(packet_data,9,22))
+	byte_arr = preparePacket8(packet_data[9:23])
+	timestamp:= int64(binary.BigEndian.Uint64(byte_arr))
 
 	fmt.Print("timestamp=>",timestamp)
 
-	seq_no,_ := strconv.Atoi(readPacket(packet_data,23,26))
+	byte_arr = preparePacket8(packet_data[23:27])
+	seq_no := int64(binary.BigEndian.Uint64(preparePacket(byte_arr)))
 
 	fmt.Print("seq_no=>",seq_no)
 
-	packet_type,_ := strconv.Atoi(readPacket(packet_data,27,28))
+	byte_arr = preparePacket(packet_data[27:29])
+	packet_type := int(binary.BigEndian.Uint32([]byte(byte_arr)))
 
 	fmt.Print("packet_type=>",packet_type)
 
 	packet_description := packet_config["packets"]
 	fmt.Print("packet_des=>",packet_description)
 
-	dbout := make(map[string]interface{})
+	data :=reflect.ValueOf( packet_config["packets"])
+
+	map_keys := data.MapKeys()
+
+	var packet_structure map[int][]map[string][]map[string]string
+
+	fmt.Print("starts here")
+	packet_structure = make(map[int][]map[string][]map[string]string)
+	for i:=0;i<len(map_keys);i++{
+
+		ke:=map_keys[i].Interface().(int)
+		temp_packet := reflect.ValueOf(ke)
+		value := data.MapIndex(temp_packet)
+		rvalue := reflect.ValueOf(value.Interface())
+		value_keys := rvalue.MapKeys()
+		for j:=0;j<len(value_keys);j++{
+			parameter := value_keys[j].Interface().(string)
+			para_val := rvalue.MapIndex(reflect.ValueOf(parameter)).Interface()
+			rr_value := reflect.ValueOf(para_val)
+			pv_keys :=rr_value.MapKeys()
+			var tmap []map[string]string
+			var ma map[string]string
+			ma = make(map[string]string)
+			for k:=0;k<len(pv_keys);k++{
+				in_parameter := pv_keys[k].Interface().(string)
+				in_val := rr_value.MapIndex(reflect.ValueOf(in_parameter)).Interface().(string)
+				ma[in_parameter] = in_val
+				tmap = append(tmap,ma)
+			}
+			var tt map[string][]map[string]string
+			tt =make(map[string][]map[string]string)
+			tt[parameter] = tmap
+			packet_structure[ke] = append(packet_structure[ke], tt)
+		}
+	}
+	var result map[string]int64
+	result = make(map[string]int64)
+	fmt.Print("dssdsddssd", packet_structure[int(packet_type)])
+	var repeat_packet []map[string]string
+	last_offset := 0
+	iterate := 0
+	for k,_:=range packet_structure[int(packet_type)]{
+		fmt.Println(packet_structure[int(packet_type)][k])
+		for offset,val :=range packet_structure[int(packet_type)][k]{
+			off := 0
+			len :=0
+			if strings.Contains(offset,"repeat_"){
+				off,_ = strconv.Atoi(strings.Split(offset,"repeat_")[1])
+				len,_ = strconv.Atoi(val[3]["length"])
+
+				//save for repeat
+				ma := make(map[string]string)
+				ma["length"] = val[3]["length"]
+				ma["name"] = val[2]["name"]
+				ma["out_type"] = val[1]["out_type"]
+				repeat_packet = append(repeat_packet, ma)
+			}else {
+				off,_ = strconv.Atoi(offset)
+				len,_ = strconv.Atoi(val[3]["length"])
+			}
+
+
+			fmt.Println("val",val)
+
+			fmt.Println("len,off=>",len,off)
+			if val[1]["out_type"] == "int64"{
+				byte_arr = preparePacket8(packet_data[off:off+len])
+				result[val[2]["name"]] = int64(binary.BigEndian.Uint64([]byte(byte_arr)))
+			}else{
+				byte_arr = preparePacket(packet_data[off:off+len])
+				result[val[2]["name"]] = int64(binary.BigEndian.Uint32([]byte(byte_arr)))
+			}
+
+			last_offset = off+len
+
+			if strings.Contains(val[2]["name"], "num_"){
+				iterate = int(result[val[2]["name"]])
+			}
+			fmt.Println("Data for=", packet_data[off:off+len], " off=", off, " len=", off+len)
+		}
+	}
+
+
+
+	for i:=0;i<iterate-1;i++{
+		fmt.Print("@@@@")
+		for j:=0;j<len(repeat_packet);j++{
+			pa := repeat_packet[j]
+			len,_ := strconv.Atoi(pa["length"])
+			if pa["out_type"] == "int64"{
+				byte_arr = preparePacket8(packet_data[last_offset:last_offset+len])
+				result[pa["name"]+"_"+strconv.Itoa(i+1)] = int64(binary.BigEndian.Uint64([]byte(byte_arr)))
+			}else{
+				byte_arr = preparePacket(packet_data[last_offset:last_offset+len])
+				result[pa["name"]+"_"+strconv.Itoa(i+1)] = int64(binary.BigEndian.Uint32([]byte(byte_arr)))
+			}
+			last_offset += len
+		}
+	}
+	fmt.Print(result)
+	//current_packet_structure := packet_structure[packet_type]
+
+
 	/*out := output{}
 	if m.Typ == "hex" {
 		for k, v := range packet_config.Parameters {
@@ -111,7 +219,7 @@ func Wrap(input interface{})map[string]interface{} {
 		}
 	}
 */
-	return dbout
+	return nil
 
 }
 
@@ -119,6 +227,34 @@ func readPacket(arr []string, i int, j int) string{
 	result := ""
 	for ;i<=j;i++ {
 		result+=arr[i]
+	}
+	return result
+}
+func preparePacket(arr []byte) []byte{
+	var result []byte
+
+	tmp := byte(0)
+	len := len(arr)
+	fmt.Println("inaa=>",arr)
+	for i:=len;i<4;i++{
+		result=append(result,tmp)
+	}
+	for k,_:=range arr{
+		result = append(result, arr[k])
+	}
+	return (result)
+}
+
+func preparePacket8(arr []byte) []byte{
+	var result []byte
+
+	tmp := byte(0)
+	len := len(arr)
+	for i:=len;i<8;i++{
+		result=append(result,tmp)
+	}
+	for k,_:=range arr{
+		result = append(result, arr[k])
 	}
 	return result
 }
