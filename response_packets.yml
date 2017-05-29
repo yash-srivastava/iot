@@ -1,0 +1,8 @@
+delim: 0x7E
+response_packets:
+          0x00022:
+            length: 30
+            response_parameters:
+                          "status":
+                              offset: 29
+                              length: 1

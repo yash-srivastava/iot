@@ -1,6 +1,16 @@
 delim: 0x7E
 packets:
+      0x0002:
+        response_packet: 0x00022
+        parameters:
+          "29":
+            in_type: string
+            out_type: int64
+            length: "1"
+            name: status
+
       0x3001:
+        response_packet: -1
         parameters:
           "29":
             in_type: string
@@ -50,7 +60,11 @@ packets:
             length: "1"
             name: op4
 
+
+
       0xe000:
+        response_packet: 0xe0001
+
         parameters:
           "29":
             in_type: string
@@ -160,7 +174,10 @@ packets:
             length: "1"
             name: rx_signal_strength
 
+
+
       0x0003:
+        response_packet: -1
         parameters:
           "0":
             in_type: string

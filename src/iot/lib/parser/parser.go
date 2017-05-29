@@ -7,52 +7,24 @@ import (
 	"fmt"
 	"encoding/binary"
 	"strings"
+	"github.com/StabbyCutyou/buffstreams"
+	"github.com/orcaman/concurrent-map"
+	"github.com/benmanns/goworker"
 )
 
-/*type asset struct {
-	Name       string                `json:"name"`
-	Method     string                `json:"method"`
-	Typ        string                `json:"type"`
-	Url        []string              `json:"url"`
-	Db         db                    `json:"db"`
-	Parameters map[string]parameters `json:"parameters"`
-}
 
-type db struct {  `json:"db_type"`
-}
+var SGU_TCP_CONNECTION cmap.ConcurrentMap
 
-type parameters struct {
-	Name     st
-	DbUrl  []string `json:"db_url"`
-	DbType string ring `json:"name"`
-	Dbcol    string `json:"dbcol"`
-	Indexed  string `json:"indexed"`
-	Desc     string `json:"description"`
-	Len      string `json:"length"`
-	In_type  string `json:"in_type"`
-	Out_type string `json:"out_type"`
-	Op       string `json:"op"`
-}
+func Wrap(conn *buffstreams.Client)map[string]interface{} {
 
-type output struct {
-	Data []data `json:"data"`
-}
 
-type data struct {
-	Key   string      `json:"key"`
-	Value interface{} `json:"value"`
-}
+	incoming := Incoming{}
+	var result map[string]int64
+	result = make(map[string]int64)
 
-var string_packet string*/
+	packet_data := conn.Data
 
-func Wrap(input []byte)map[string]interface{} {
-	smap := make(map[string]int)
-	smap["swap8"] = 8
-	smap["swap16"] = 16
-	smap["swap32"] = 32
-	packet_data := input
-
-	packet_config := GetConf()
+	packet_config := GetSguPacket()
 
 	delim := int(packet_config.Delim)
 
@@ -75,6 +47,7 @@ func Wrap(input []byte)map[string]interface{} {
 	sgu_id := (binary.BigEndian.Uint64(byte_arr))
 
 	fmt.Print("sgu_id=>",sgu_id)
+	incoming.SguId = sgu_id
 
 	byte_arr = preparePacket8(packet_data[9:23])
 	timestamp:= int64(binary.BigEndian.Uint64(byte_arr))
@@ -85,6 +58,7 @@ func Wrap(input []byte)map[string]interface{} {
 	seq_no := int64(binary.BigEndian.Uint64(preparePacket(byte_arr)))
 
 	fmt.Print("seq_no=>",seq_no)
+	incoming.SeqNo = seq_no
 
 	byte_arr = preparePacket(packet_data[27:29])
 	packet_type := int(binary.BigEndian.Uint32([]byte(byte_arr)))
@@ -94,8 +68,11 @@ func Wrap(input []byte)map[string]interface{} {
 	packet_description := packet_config.Packets
 	fmt.Print("packet_des=>",packet_description)
 
-	var result map[string]int64
-	result = make(map[string]int64)
+	client,_ := buffstreams.TcpClients.Get(conn.Address)
+	SGU_TCP_CONNECTION.Set(strconv.FormatUint(sgu_id,10),client)
+
+	fmt.Print(SGU_TCP_CONNECTION)
+
 	var repeat_parameter []Parameters
 	last_offset := 0
 	iterate := 0
@@ -152,6 +129,21 @@ func Wrap(input []byte)map[string]interface{} {
 			last_offset += len
 		}
 	}
+
+
+	if packet_description[packet_type].Response_packet != -1{
+		params := make([]interface{}, 3)
+		params[0] = "send_response_packets"
+		params[1] = packet_description[packet_type].Response_packet
+		params[2] = incoming
+
+		fmt.Println("FORRRRRR=>",params)
+		payload := goworker.Payload{"packets", params}
+		job := goworker.Job{"packet_queue", payload}
+		goworker.Enqueue(&job)
+	}
+
+	fmt.Println("RESPOND TO######",packet_description[packet_type].Response_packet)
 	fmt.Print(result)
 	return nil
 

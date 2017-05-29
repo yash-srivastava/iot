@@ -6,6 +6,9 @@ import (
 	"errors"
 	"fmt"
 	"iot/lib/formatter"
+	"iot/lib/parser"
+	"iot/lib/sender"
+	"encoding/json"
 )
 
 func ProcessPacket(task string, args ...interface{}) error {
@@ -21,6 +24,18 @@ func ProcessPacket(task string, args ...interface{}) error {
 			fmt.Print(err)
 		}
 		sgu_utils.ParseInputPackets(&client)
+	}else if name == "send_response_packets"{
+		incoming := parser.Incoming{}
+
+		packet_type := args[1].(json.Number)
+
+		fmt.Println("payal")
+		err := formatter.GetStructFromInterface(args[2], &incoming)
+		if err!=nil{
+			fmt.Print(err)
+		}
+		pack_type,_ := (packet_type.Int64())
+		sender.SendResponsePacket(int(pack_type), incoming)
 	}
 	return nil
 }

@@ -5,6 +5,8 @@ import (
 	"fmt"
 	"strconv"
 	"github.com/benmanns/goworker"
+	"github.com/orcaman/concurrent-map"
+	"iot/lib/parser"
 )
 
 var (
@@ -18,6 +20,7 @@ func Start_tcp_server()*buffstreams.Manager  {
 		Address: buffstreams.FormatAddress("", strconv.Itoa(6000)),
 		Callback: HandleTcpRequest, // Any function type that adheres to this signature, you'll need to deserialize in here if need be
 	}
+	parser.SGU_TCP_CONNECTION = cmap.New()
 	bm := buffstreams.NewManager()
 	err := bm.StartListening(cfg)
 	if err!=nil {

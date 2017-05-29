@@ -2,3 +2,12 @@ ERROR 2017/05/29 14:16:33 Error running: signal: killed
 ERROR 2017/05/29 16:48:21 Error running: exit status 1
 ERROR 2017/05/29 17:40:17 Error running: exit status 1
 ERROR 2017/05/29 18:42:17 Error running: exit status 1
+ERROR 2017/05/30 02:45:46 Error running: exit status 1
+ERROR 2017/05/30 02:52:52 # iot_client/lib/dial_tcp
+src/iot_client/lib/dial_tcp/dial_tcp.go:9: imported and not used: "github.com/StabbyCutyou/buffstreams/test/message"
+src/iot_client/lib/dial_tcp/dial_tcp.go:10: imported and not used: "github.com/golang/protobuf/proto"
+
+ERROR 2017/05/30 02:53:10 # iot_client/lib/dial_tcp
+src/iot_client/lib/dial_tcp/dial_tcp.go:9: imported and not used: "github.com/StabbyCutyou/buffstreams/test/message"
+src/iot_client/lib/dial_tcp/dial_tcp.go:10: imported and not used: "github.com/golang/protobuf/proto"
+
