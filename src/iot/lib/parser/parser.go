@@ -5,12 +5,11 @@ import (
 	"strconv"
 	//"log"
 	"fmt"
-	"reflect"
 	"encoding/binary"
 	"strings"
 )
 
-type asset struct {
+/*type asset struct {
 	Name       string                `json:"name"`
 	Method     string                `json:"method"`
 	Typ        string                `json:"type"`
@@ -19,13 +18,13 @@ type asset struct {
 	Parameters map[string]parameters `json:"parameters"`
 }
 
-type db struct {
-	DbUrl  []string `json:"db_url"`
-	DbType string   `json:"db_type"`
+type db struct {  `json:"db_type"`
 }
 
 type parameters struct {
-	Name     string `json:"name"`
+	Name     st
+	DbUrl  []string `json:"db_url"`
+	DbType string ring `json:"name"`
 	Dbcol    string `json:"dbcol"`
 	Indexed  string `json:"indexed"`
 	Desc     string `json:"description"`
@@ -44,7 +43,7 @@ type data struct {
 	Value interface{} `json:"value"`
 }
 
-var string_packet string
+var string_packet string*/
 
 func Wrap(input []byte)map[string]interface{} {
 	smap := make(map[string]int)
@@ -55,7 +54,7 @@ func Wrap(input []byte)map[string]interface{} {
 
 	packet_config := GetConf()
 
-	delim,_ := packet_config["delim"].(int)
+	delim := int(packet_config.Delim)
 
 	byte_arr :=preparePacket(packet_data[0:1])
 
@@ -92,133 +91,68 @@ func Wrap(input []byte)map[string]interface{} {
 
 	fmt.Print("packet_type=>",packet_type)
 
-	packet_description := packet_config["packets"]
+	packet_description := packet_config.Packets
 	fmt.Print("packet_des=>",packet_description)
 
-	data :=reflect.ValueOf( packet_config["packets"])
-
-	map_keys := data.MapKeys()
-
-	var packet_structure map[int][]map[string][]map[string]string
-
-	fmt.Print("starts here")
-	packet_structure = make(map[int][]map[string][]map[string]string)
-	for i:=0;i<len(map_keys);i++{
-
-		ke:=map_keys[i].Interface().(int)
-		temp_packet := reflect.ValueOf(ke)
-		value := data.MapIndex(temp_packet)
-		rvalue := reflect.ValueOf(value.Interface())
-		value_keys := rvalue.MapKeys()
-		for j:=0;j<len(value_keys);j++{
-			parameter := value_keys[j].Interface().(string)
-			para_val := rvalue.MapIndex(reflect.ValueOf(parameter)).Interface()
-			rr_value := reflect.ValueOf(para_val)
-			pv_keys :=rr_value.MapKeys()
-			var tmap []map[string]string
-			var ma map[string]string
-			ma = make(map[string]string)
-			for k:=0;k<len(pv_keys);k++{
-				in_parameter := pv_keys[k].Interface().(string)
-				in_val := rr_value.MapIndex(reflect.ValueOf(in_parameter)).Interface().(string)
-				ma[in_parameter] = in_val
-				tmap = append(tmap,ma)
-			}
-			var tt map[string][]map[string]string
-			tt =make(map[string][]map[string]string)
-			tt[parameter] = tmap
-			packet_structure[ke] = append(packet_structure[ke], tt)
-		}
-	}
 	var result map[string]int64
 	result = make(map[string]int64)
-	fmt.Print("dssdsddssd", packet_structure[int(packet_type)])
-	var repeat_packet []map[string]string
+	var repeat_parameter []Parameters
 	last_offset := 0
 	iterate := 0
-	for k,_:=range packet_structure[int(packet_type)]{
-		fmt.Println(packet_structure[int(packet_type)][k])
-		for offset,val :=range packet_structure[int(packet_type)][k]{
+		for offset,val :=range packet_description[packet_type].Parameters{
 			off := 0
 			len :=0
 			if strings.Contains(offset,"repeat_"){
 				off,_ = strconv.Atoi(strings.Split(offset,"repeat_")[1])
-				len,_ = strconv.Atoi(val[3]["length"])
+				len,_ = strconv.Atoi(val.Length)
 
 				//save for repeat
-				ma := make(map[string]string)
-				ma["length"] = val[3]["length"]
-				ma["name"] = val[2]["name"]
-				ma["out_type"] = val[1]["out_type"]
-				repeat_packet = append(repeat_packet, ma)
+				ma := val
+				repeat_parameter = append(repeat_parameter, ma)
 			}else {
 				off,_ = strconv.Atoi(offset)
-				len,_ = strconv.Atoi(val[3]["length"])
+				len,_ = strconv.Atoi(val.Length)
 			}
 
 
 			fmt.Println("val",val)
 
 			fmt.Println("len,off=>",len,off)
-			if val[1]["out_type"] == "int64"{
+			if val.Out_type == "int64"{
 				byte_arr = preparePacket8(packet_data[off:off+len])
-				result[val[2]["name"]] = int64(binary.BigEndian.Uint64([]byte(byte_arr)))
+				result[val.Name] = int64(binary.BigEndian.Uint64([]byte(byte_arr)))
 			}else{
 				byte_arr = preparePacket(packet_data[off:off+len])
-				result[val[2]["name"]] = int64(binary.BigEndian.Uint32([]byte(byte_arr)))
+				result[val.Name] = int64(binary.BigEndian.Uint32([]byte(byte_arr)))
 			}
 
 			last_offset = off+len
 
-			if strings.Contains(val[2]["name"], "num_"){
-				iterate = int(result[val[2]["name"]])
+			if strings.Contains(val.Name, "num_"){
+				iterate = int(result[val.Name])
 			}
 			fmt.Println("Data for=", packet_data[off:off+len], " off=", off, " len=", off+len)
 		}
-	}
+
 
 
 
 	for i:=0;i<iterate-1;i++{
 		fmt.Print("@@@@")
-		for j:=0;j<len(repeat_packet);j++{
-			pa := repeat_packet[j]
-			len,_ := strconv.Atoi(pa["length"])
-			if pa["out_type"] == "int64"{
+		for j:=0;j<len(repeat_parameter);j++{
+			pa := repeat_parameter[j]
+			len,_ := strconv.Atoi(pa.Length)
+			if pa.Out_type == "int64"{
 				byte_arr = preparePacket8(packet_data[last_offset:last_offset+len])
-				result[pa["name"]+"_"+strconv.Itoa(i+1)] = int64(binary.BigEndian.Uint64([]byte(byte_arr)))
+				result[pa.Name+"_"+strconv.Itoa(i+1)] = int64(binary.BigEndian.Uint64([]byte(byte_arr)))
 			}else{
 				byte_arr = preparePacket(packet_data[last_offset:last_offset+len])
-				result[pa["name"]+"_"+strconv.Itoa(i+1)] = int64(binary.BigEndian.Uint32([]byte(byte_arr)))
+				result[pa.Name+"_"+strconv.Itoa(i+1)] = int64(binary.BigEndian.Uint32([]byte(byte_arr)))
 			}
 			last_offset += len
 		}
 	}
 	fmt.Print(result)
-	//current_packet_structure := packet_structure[packet_type]
-
-
-	/*out := output{}
-	if m.Typ == "hex" {
-		for k, v := range packet_config.Parameters {
-			var val interface{}
-			off, _ := strconv.Atoi(k)
-			len, _ := strconv.Atoi(v.Len)
-			if v.Op[:4] == "swap" {
-				log.Println("Data for=", string_packet[off:off+len], " off=", off, " len=", off+len, " str=", string_packet)
-				val = Swap(string_packet[off:off+len], v.Out_type, smap[v.Op])
-			}else {
-				log.Println("Data for=", string_packet[off:off+len], " off=", off, " len=", off+len, " str=", string_packet)
-				val=Tonative(string_packet[off:off+len],v.Op)
-			}
-			da := data{}
-			da.Key = v.Name
-			da.Value = val
-			out.Data = append(out.Data, da)
-			dbout[v.Dbcol] = val
-		}
-	}
-*/
 	return nil
 
 }

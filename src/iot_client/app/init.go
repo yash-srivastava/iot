@@ -2,6 +2,7 @@ package app
 
 import (
 	"github.com/revel/revel"
+	"iot_client/lib/dial_tcp"
 )
 
 var (
@@ -12,6 +13,9 @@ var (
 	BuildTime string
 )
 
+func StartupScript(){
+	dial_tcp.Connect()
+}
 func init() {
 	// Filters is the default set of global filters.
 	revel.Filters = []revel.Filter{
@@ -33,7 +37,7 @@ func init() {
 	// register startup functions with OnAppStart
 	// revel.DevMode and revel.RunMode only work inside of OnAppStart. See Example Startup Script
 	// ( order dependent )
-	// revel.OnAppStart(ExampleStartupScript)
+	 revel.OnAppStart(StartupScript)
 	// revel.OnAppStart(InitDB)
 	// revel.OnAppStart(FillCache)
 }

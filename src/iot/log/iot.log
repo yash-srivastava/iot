@@ -1,0 +1,16 @@
+ERROR 2017/05/29 13:50:36 Failed to listen: listen tcp :9000: bind: address already in use
+ERROR 2017/05/29 13:50:36 Error running: exit status 1
+ERROR 2017/05/29 13:50:45 Failed to listen: listen tcp :9000: bind: address already in use
+ERROR 2017/05/29 13:50:45 Error running: exit status 1
+ERROR 2017/05/29 13:52:13 Failed to listen: listen tcp :9000: bind: address already in use
+ERROR 2017/05/29 13:52:13 Error running: exit status 1
+ERROR 2017/05/29 14:15:40 Failed to listen: listen tcp :9000: bind: address already in use
+ERROR 2017/05/29 14:15:40 Error running: exit status 1
+ERROR 2017/05/29 16:36:20 Failed to listen: listen tcp :9000: bind: address already in use
+ERROR 2017/05/29 16:36:20 Error running: exit status 1
+ERROR 2017/05/29 16:36:31 Failed to listen: listen tcp :9000: bind: address already in use
+ERROR 2017/05/29 16:36:31 Error running: exit status 1
+ERROR 2017/05/29 16:40:56 # iot/lib/parser
+src/iot/lib/parser/parser.go:27: parameters redeclared in this block
+	previous declaration at src/iot/lib/parser/packets.go:19
+

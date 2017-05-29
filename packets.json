@@ -1,0 +1,178 @@
+{
+  "delim": "0x7E",
+  "packets": {
+    "3": {
+      "parameters": {
+        "0": {
+          "in_type": "string",
+          "out_type": "string",
+          "length": "16"
+        }
+      }
+    },
+    "0x3001": {
+      "parameters": {
+        "29": {
+          "in_type": "string",
+          "out_type": "int64",
+          "length": "1",
+          "name": "status"
+        },
+        "30": {
+          "in_type": "string",
+          "out_type": "int64",
+          "length": "8",
+          "name": "scuid"
+        },
+        "38": {
+          "in_type": "string",
+          "out_type": "int64",
+          "length": "1",
+          "name": "get_set"
+        },
+        "39": {
+          "in_type": "string",
+          "out_type": "int64",
+          "length": "1",
+          "name": "pwm"
+        },
+        "40": {
+          "in_type": "string",
+          "out_type": "int64",
+          "length": "1",
+          "name": "op1"
+        },
+        "41": {
+          "in_type": "string",
+          "out_type": "int64",
+          "length": "1",
+          "name": "op2"
+        },
+        "42": {
+          "in_type": "string",
+          "out_type": "int64",
+          "length": "1",
+          "name": "op3"
+        },
+        "43": {
+          "in_type": "string",
+          "out_type": "int64",
+          "length": "1",
+          "name": "op4"
+        }
+      }
+    },
+    "0xe000": {
+      "parameters": {
+        "29": {
+          "in_type": "string",
+          "out_type": "int64",
+          "length": "2",
+          "name": "num_of_scus"
+        },
+        "42": {
+          "in_type": "string",
+          "out_type": "int64",
+          "length": "1",
+          "name": "Dip3"
+        },
+        "repeat_31": {
+          "in_type": "string",
+          "out_type": "int64",
+          "length": "8",
+          "name": "scuid"
+        },
+        "repeat_39": {
+          "in_type": "string",
+          "out_type": "int64",
+          "length": "1",
+          "name": "status"
+        },
+        "repeat_40": {
+          "in_type": "string",
+          "out_type": "int64",
+          "length": "1",
+          "name": "Dip1"
+        },
+        "repeat_41": {
+          "in_type": "string",
+          "out_type": "int64",
+          "length": "1",
+          "name": "Dip2"
+        },
+        "repeat_43": {
+          "in_type": "string",
+          "out_type": "int64",
+          "length": "1",
+          "name": "Dip4"
+        },
+        "repeat_44": {
+          "in_type": "string",
+          "out_type": "int64",
+          "length": "1",
+          "name": "Aip1"
+        },
+        "repeat_45": {
+          "in_type": "string",
+          "out_type": "int64",
+          "length": "1",
+          "name": "Aip2"
+        },
+        "repeat_46": {
+          "in_type": "string",
+          "out_type": "int64",
+          "length": "1",
+          "name": "Aip3"
+        },
+        "repeat_47": {
+          "in_type": "string",
+          "out_type": "int64",
+          "length": "1",
+          "name": "Aip4"
+        },
+        "repeat_48": {
+          "in_type": "string",
+          "out_type": "int64",
+          "length": "1",
+          "name": "Dop1"
+        },
+        "repeat_49": {
+          "in_type": "string",
+          "out_type": "int64",
+          "length": "1",
+          "name": "Dop2"
+        },
+        "repeat_50": {
+          "in_type": "string",
+          "out_type": "int64",
+          "length": "1",
+          "name": "Dop3"
+        },
+        "repeat_51": {
+          "in_type": "string",
+          "out_type": "int64",
+          "length": "1",
+          "name": "Dop4"
+        },
+        "repeat_52": {
+          "in_type": "string",
+          "out_type": "int64",
+          "length": "1",
+          "name": "Dop5"
+        },
+        "repeat_53": {
+          "in_type": "string",
+          "out_type": "int64",
+          "length": "1",
+          "name": "gsm_signal_strength"
+        },
+        "repeat_54": {
+          "in_type": "string",
+          "out_type": "int64",
+          "length": "1",
+          "name": "rx_signal_strength"
+        }
+      }
+    }
+  }
+}

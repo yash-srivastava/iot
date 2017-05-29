@@ -1,7 +1,7 @@
-delim:
-      0x7E
+delim: 0x7E
 packets:
       0x3001:
+        parameters:
           "29":
             in_type: string
             out_type: int64
@@ -51,6 +51,7 @@ packets:
             name: op4
 
       0xe000:
+        parameters:
           "29":
             in_type: string
             out_type: int64
@@ -159,10 +160,8 @@ packets:
             length: "1"
             name: rx_signal_strength
 
-          "response":
-            packet: 0xe001
-
       0x0003:
+        parameters:
           "0":
             in_type: string
             out_type: string

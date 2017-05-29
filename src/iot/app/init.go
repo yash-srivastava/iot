@@ -2,7 +2,8 @@ package app
 
 import (
 	"github.com/revel/revel"
-	"fmt"
+	"iot/lib/tcp_server"
+	"iot/lib/job_worker"
 )
 
 var (
@@ -12,6 +13,12 @@ var (
 	// BuildTime revel app build-time (ldflags)
 	BuildTime string
 )
+
+func StartupScript() {
+	go job_worker.Init()
+	go tcp_server.Start_tcp_server()
+
+}
 
 func init() {
 	// Filters is the default set of global filters.
@@ -30,11 +37,10 @@ func init() {
 		revel.ActionInvoker,           // Invoke the action.
 	}
 
-	fmt.Println("asas")
 	// register startup functions with OnAppStart
 	// revel.DevMode and revel.RunMode only work inside of OnAppStart. See Example Startup Script
 	// ( order dependent )
-	// revel.OnAppStart(ExampleStartupScript)
+	revel.OnAppStart(StartupScript)
 	// revel.OnAppStart(InitDB)
 	// revel.OnAppStart(FillCache)
 }
@@ -50,11 +56,3 @@ var HeaderFilter = func(c *revel.Controller, fc []revel.Filter) {
 
 	fc[0](c, fc[1:]) // Execute the next filter stage.
 }
-
-//func ExampleStartupScript() {
-//	// revel.DevMod and revel.RunMode work here
-//	// Use this script to check for dev mode and set dev/prod startup scripts here!
-//	if revel.DevMode == true {
-//		// Dev mode
-//	}
-//}
