@@ -11,3 +11,34 @@ ERROR 2017/05/30 02:53:10 # iot_client/lib/dial_tcp
 src/iot_client/lib/dial_tcp/dial_tcp.go:9: imported and not used: "github.com/StabbyCutyou/buffstreams/test/message"
 src/iot_client/lib/dial_tcp/dial_tcp.go:10: imported and not used: "github.com/golang/protobuf/proto"
 
+ERROR 2017/05/30 15:30:35 Error running: exit status 1
+ERROR 2017/05/30 15:35:52 Error running: exit status 1
+ERROR 2017/05/30 15:40:16 Error running: exit status 1
+ERROR 2017/05/30 15:43:34 Error running: exit status 1
+ERROR 2017/05/30 15:46:52 Error running: exit status 1
+ERROR 2017/05/30 15:49:07 Error running: exit status 1
+ERROR 2017/05/30 15:50:38 Error running: exit status 1
+ERROR 2017/05/30 15:53:10 Error running: exit status 1
+ERROR 2017/05/30 16:00:02 Error running: exit status 1
+ERROR 2017/05/30 16:06:50 Error running: exit status 1
+ERROR 2017/05/30 16:09:34 Error running: exit status 1
+ERROR 2017/05/30 16:12:12 Error running: exit status 1
+ERROR 2017/05/30 16:16:43 Error running: exit status 1
+ERROR 2017/05/30 16:21:27 # github.com/StabbyCutyou/buffstreams
+src/github.com/StabbyCutyou/buffstreams/tcplistener.go:8: imported and not used: "time"
+
+ERROR 2017/05/30 16:22:48 Error running: exit status 1
+ERROR 2017/05/30 17:11:12 Error running: exit status 1
+ERROR 2017/05/30 17:13:23 Error running: exit status 1
+ERROR 2017/05/30 17:14:27 Error running: exit status 1
+ERROR 2017/05/30 17:16:02 Error running: exit status 1
+ERROR 2017/05/30 17:56:52 Error running: exit status 1
+ERROR 2017/05/30 17:59:25 Error running: exit status 1
+ERROR 2017/05/30 18:11:26 Error running: exit status 1
+ERROR 2017/05/30 18:19:15 Error running: exit status 1
+ERROR 2017/05/30 18:27:20 Error running: exit status 1
+ERROR 2017/05/30 18:28:21 Error running: exit status 1
+ERROR 2017/05/30 18:38:18 Error running: exit status 1
+ERROR 2017/05/30 18:43:10 Error running: exit status 1
+ERROR 2017/05/30 18:48:57 Error running: exit status 1
+ERROR 2017/05/30 18:50:05 Error running: exit status 1

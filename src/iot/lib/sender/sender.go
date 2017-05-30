@@ -2,17 +2,17 @@ package sender
 
 import (
 	"iot/lib/parser"
-	"fmt"
 	"strconv"
 	"github.com/StabbyCutyou/buffstreams"
 	"encoding/binary"
+	"iot/lib/formatter"
+	"github.com/revel/revel"
 )
 
 func SendResponsePacket(pack_type int, incoming parser.Incoming){
 	packet_config := parser.GetSguResponsePacket()
 
 	packet_description := packet_config.Response_packets
-	fmt.Print("packet_des$$$$$=>",packet_description)
 
 	delim := packet_config.Delim
 
@@ -38,7 +38,6 @@ func SendResponsePacket(pack_type int, incoming parser.Incoming){
 
 	for key,_ :=range packet_description[packet_type].Response_parameters{
 		if key=="status"{
-			fmt.Println("Appending=>>>",key)
 			response = append(response, byte(1))
 		}
 	}
@@ -46,12 +45,13 @@ func SendResponsePacket(pack_type int, incoming parser.Incoming){
 	client,_ := parser.SGU_TCP_CONNECTION.Get(strconv.FormatUint(sgu_id,10))
 	conv,ok := client.(*buffstreams.TCPConn)
 	if !ok{
-		fmt.Print("Invalid Connection")
+		revel.WARN.Println("Invalid Connection")
 	}
-	wr,e:=conv.Write(response)
-	fmt.Print("line",wr)
+
+	revel.INFO.Println("Sending Packet:","packet_type=>",packet_type,"(",formatter.ToHex(packet_type),")","sgu_id=>",sgu_id,"(",formatter.ToHex(sgu_id),")")
+	_,e:=conv.Write(response)
 	if e!=nil{
-		fmt.Print(e.Error())
+		revel.ERROR.Print(e.Error())
 	}
 
 }

@@ -3,7 +3,6 @@ package parser
 import (
 	"io/ioutil"
 	"log"
-	"fmt"
 	"gopkg.in/yaml.v2"
 )
 
@@ -55,7 +54,6 @@ func GetSguPacket() Sgu_packet {
 	}
 	c := Sgu_packet{}
 	err = yaml.Unmarshal(yamlFile, &c)
-	fmt.Println(c)
 	if err != nil {
 		log.Fatalf("Unmarshal: %v", err)
 	}
@@ -70,7 +68,6 @@ func GetSguResponsePacket() Sgu_response_packet {
 	}
 	c := Sgu_response_packet{}
 	err = yaml.Unmarshal(yamlFile, &c)
-	fmt.Println(c)
 	if err != nil {
 		log.Fatalf("Unmarshal: %v", err)
 	}
