@@ -1,9 +1,7 @@
 package parser
 
 import (
-	//"encoding/json"
 	"strconv"
-	//"log"
 	"encoding/binary"
 	"strings"
 	"github.com/StabbyCutyou/buffstreams"
@@ -68,35 +66,35 @@ func Wrap(conn *buffstreams.Client)map[string]interface{} {
 	var repeat_parameter []Parameters
 	last_offset := 0
 	iterate := 0
-		for offset,val :=range packet_description[packet_type].Parameters{
-			off := 0
-			len :=0
-			if strings.Contains(offset,"repeat_"){
-				off,_ = strconv.Atoi(strings.Split(offset,"repeat_")[1])
-				len,_ = strconv.Atoi(val.Length)
+	for offset,val :=range packet_description[packet_type].Parameters{
+		off := 0
+		len :=0
+		if strings.Contains(offset,"repeat_"){
+			off,_ = strconv.Atoi(strings.Split(offset,"repeat_")[1])
+			len,_ = strconv.Atoi(val.Length)
 
-				//save for repeat
-				ma := val
-				repeat_parameter = append(repeat_parameter, ma)
-			}else {
-				off,_ = strconv.Atoi(offset)
-				len,_ = strconv.Atoi(val.Length)
-			}
-
-			if val.Out_type == "int64"{
-				byte_arr = preparePacket8(packet_data[off:off+len])
-				result[val.Name] = int64(binary.BigEndian.Uint64([]byte(byte_arr)))
-			}else{
-				byte_arr = preparePacket(packet_data[off:off+len])
-				result[val.Name] = int64(binary.BigEndian.Uint32([]byte(byte_arr)))
-			}
-
-			last_offset = off+len
-
-			if strings.Contains(val.Name, "num_"){
-				iterate = int(result[val.Name])
-			}
+			//save for repeat
+			ma := val
+			repeat_parameter = append(repeat_parameter, ma)
+		}else {
+			off,_ = strconv.Atoi(offset)
+			len,_ = strconv.Atoi(val.Length)
 		}
+
+		if val.Out_type == "int64"{
+			byte_arr = preparePacket8(packet_data[off:off+len])
+			result[val.Name] = int64(binary.BigEndian.Uint64([]byte(byte_arr)))
+		}else{
+			byte_arr = preparePacket(packet_data[off:off+len])
+			result[val.Name] = int64(binary.BigEndian.Uint32([]byte(byte_arr)))
+		}
+
+		last_offset = off+len
+
+		if strings.Contains(val.Name, "num_"){
+			iterate = int(result[val.Name])
+		}
+	}
 
 
 
@@ -171,219 +169,3 @@ func preparePacket8(arr []byte) []byte{
 	}
 	return result
 }
-
-
-const ollo = `
- {
-   "name": "ollo",
-   "method": "post",
-   "type":"hex",
-   "url":[
-   		"ollo",
-   		"havells"
-	],
-	"db":{
-		"db_url":[
-			"mysql"],
-		"db_type":"POSTGRES"
-	},
-   "parameters": {
-     "0":{
-       "in_type":"string",
-       "out_type":"int64",
-       "op":"swap8",
-       "name":"Current",
-       "dbcol":"Current",
-       "indexed":"true",
-       "description":"Power Consumption",
-       "length":"4"
-     },
-     "4":{
-       "in_type":"string",
-       "out_type":"float64",
-       "op":"swap16",
-       "name":"Power",
-       "dbcol":"power",
-       "indexed":"true",
-       "description":"Power Consumption",
-       "length":"4"
-     }
-   }
- }
-    `
-const LNT  =`{
-   "name": "'Vb, L&T Nova WM30KFC3CRS",
-   "method": "post",
-   "type":"hex",
-   "url":[
-   		"ollo",
-   		"havells"
-	],
-	"db":{
-		"db_url":[
-			"mysql"],
-		"db_type":"POSTGRES"
-	},
-   "parameters": {
-     "6":{
-       "in_type":"string",
-       "out_type":"int64",
-       "op":"int64",
-       "name":"Vr",
-       "dbcol":"Vr",
-       "indexed":"true",
-       "description":"Vr",
-       "length":"8"
-     },
-     "14":{
-       "in_type":"string",
-       "out_type":"int64",
-       "op":"int64",
-       "name":"Vy",
-       "dbcol":"Vy",
-       "indexed":"true",
-       "description":"Vy",
-       "length":"8"
-     },
-     "22":{
-       "in_type":"string",
-       "out_type":"int64",
-       "op":"int64",
-       "name":"Vb",
-       "dbcol":"Vb",
-       "indexed":"true",
-       "description":"Vb",
-       "length":"8"
-     },
-     "30":{
-       "in_type":"string",
-       "out_type":"int64",
-       "op":"int64",
-       "name":"Ir",
-       "dbcol":"Ir",
-       "indexed":"true",
-       "description":"Ir",
-       "length":"8"
-     },
-     "38":{
-       "in_type":"string",
-       "out_type":"int64",
-       "op":"int64",
-       "name":"Iy",
-       "dbcol":"Iy",
-       "indexed":"true",
-       "description":"Iy",
-       "length":"8"
-     },
-     "46":{
-       "in_type":"string",
-       "out_type":"int64",
-       "op":"int64",
-       "name":"Ib",
-       "dbcol":"Ib",
-       "indexed":"true",
-       "description":"Ib",
-       "length":"8"
-     },
-     "54":{
-       "in_type":"string",
-       "out_type":"int64",
-       "op":"int64",
-       "name":"KWr",
-       "dbcol":"KWr",
-       "indexed":"true",
-       "description":"KWr",
-       "length":"8"
-     },
-     "62":{
-       "in_type":"string",
-       "out_type":"int64",
-       "op":"int64",
-       "name":"KWy",
-       "dbcol":"KWy",
-       "indexed":"true",
-       "description":"KWy",
-       "length":"8"
-     },
-     "70":{
-       "in_type":"string",
-       "out_type":"int64",
-       "op":"int64",
-       "name":"KWb",
-       "dbcol":"KWb",
-       "indexed":"true",
-       "description":"KWb",
-       "length":"8"
-     },
-     "78":{
-       "in_type":"string",
-       "out_type":"int64",
-       "op":"int64",
-       "name":"AvgV",
-       "dbcol":"AvgV",
-       "indexed":"true",
-       "description":"AvgV",
-       "length":"8"
-     },
-     "86":{
-       "in_type":"string",
-       "out_type":"int64",
-       "op":"int64",
-       "name":"AvgI",
-       "dbcol":"AvgI",
-       "indexed":"true",
-       "description":"AvgI",
-       "length":"8"
-     },
-     "94":{
-       "in_type":"string",
-       "out_type":"int64",
-       "op":"int64",
-       "name":"KW",
-       "dbcol":"KW",
-       "indexed":"true",
-       "description":"KW",
-       "length":"8"
-     },
-     "102":{
-       "in_type":"string",
-       "out_type":"int64",
-       "op":"int64",
-       "name":"FREQ",
-       "dbcol":"FREQ",
-       "indexed":"true",
-       "description":"FREQ",
-       "length":"8"
-     },
-     "110":{
-       "in_type":"string",
-       "out_type":"int64",
-       "op":"int64",
-       "name":"KWH",
-       "dbcol":"KWH",
-       "indexed":"true",
-       "description":"KWH",
-       "length":"8"
-     },
-     "118":{
-       "in_type":"string",
-       "out_type":"int64",
-       "op":"int64",
-       "name":"ActPower",
-       "dbcol":"ActPower",
-       "indexed":"true",
-       "description":"ActPower",
-       "length":"8"
-     },
-     "126":{
-       "in_type":"string",
-       "out_type":"int64",
-       "op":"int64",
-       "name":"PF",
-       "dbcol":"PF",
-       "indexed":"true",
-       "description":"PF",
-       "length":"8"
-     }
-   }
- }`

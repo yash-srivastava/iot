@@ -4,6 +4,7 @@ import (
 	"github.com/revel/revel"
 	"iot/lib/tcp_server"
 	"iot/lib/job_worker"
+	"time"
 )
 
 var (
@@ -14,10 +15,25 @@ var (
 	BuildTime string
 )
 
+func SetTimeFormat(){
+	loc, _ := time.LoadLocation("Asia/Kolkata")
+
+	/*// this is our custom format. Note that the format must point to this exact time
+	format := "Jan _2 2006 3:04:05 PM"
+
+	// this is your timestamp
+	timestamp := "Jun 25 2015 10:00:00 AM"
+
+	// now we parse it, considering it's in IST
+	ti, _ := time.ParseInLocation(format, timestamp,  loc)
+*/
+	time.Local = loc
+}
+
 func StartupScript() {
+	SetTimeFormat()
 	go job_worker.Init()
 	go tcp_server.Start_tcp_server()
-
 }
 
 func init() {

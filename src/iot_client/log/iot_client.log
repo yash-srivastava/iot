@@ -42,3 +42,9 @@ ERROR 2017/05/30 18:38:18 Error running: exit status 1
 ERROR 2017/05/30 18:43:10 Error running: exit status 1
 ERROR 2017/05/30 18:48:57 Error running: exit status 1
 ERROR 2017/05/30 18:50:05 Error running: exit status 1
+ERROR 2017/05/30 22:38:17 # iot_client/lib/dial_tcp
+src/iot_client/lib/dial_tcp/dial_tcp.go:35: 3 evaluated but not used
+
+ERROR 2017/05/30 22:38:29 # iot_client/lib/dial_tcp
+src/iot_client/lib/dial_tcp/dial_tcp.go:35: 3 evaluated but not used
+
