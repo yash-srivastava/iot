@@ -13,6 +13,7 @@ type Sgu_packet struct {
 }
 
 type Packets struct {
+	Description string `json:"description"`
 	Response_packet int `json:"response_packet"`
 	Parameters map[string]Parameters	`json:"parameters"`
 }
@@ -31,6 +32,7 @@ type Sgu_response_packet struct {
 }
 
 type Response_packets struct {
+	Description string `json:"description"`
 	Length int `json:"length"`
 	Response_parameters map[string]Response_parameters `json:"response_parameters"`
 }
@@ -45,6 +47,9 @@ type Incoming struct {
 	SeqNo   int64 `json:"seq_no"`
 }
 
+type Scu struct {
+	ScuIds     []uint64 `json:"scu_ids"`
+}
 
 func GetSguPacket() Sgu_packet {
 

@@ -9,17 +9,21 @@ import (
 	"github.com/benmanns/goworker"
 	"iot/lib/formatter"
 	"github.com/revel/revel"
+	"iot/lib/utils"
 )
 
 
-var SGU_TCP_CONNECTION cmap.ConcurrentMap
+var (
+	SGU_TCP_CONNECTION cmap.ConcurrentMap
+	SGU_SCU_LIST cmap.ConcurrentMap
+)
 
 func Wrap(conn *buffstreams.Client)map[string]interface{} {
 
 
 	incoming := Incoming{}
-	var result map[string]int64
-	result = make(map[string]int64)
+	var result map[string]uint64
+	result = make(map[string]uint64)
 
 	packet_data := conn.Data
 
@@ -44,8 +48,8 @@ func Wrap(conn *buffstreams.Client)map[string]interface{} {
 
 	incoming.SguId = sgu_id
 
-	//byte_arr = preparePacket8(packet_data[9:23])
-	//timestamp:= int64(binary.BigEndian.Uint64(byte_arr))
+	byte_arr = preparePacket8(packet_data[9:23])
+	timestamp:= int64(binary.BigEndian.Uint64(byte_arr))
 
 
 	byte_arr = preparePacket8(packet_data[23:27])
@@ -57,7 +61,10 @@ func Wrap(conn *buffstreams.Client)map[string]interface{} {
 
 	packet_description := packet_config.Packets
 
-	revel.INFO.Println("Packet Received:","packet_type=>",packet_type,"(",formatter.ToHex(packet_type),")","packet_length=>",packet_length,"sgu_id=>",sgu_id,"(",formatter.ToHex(sgu_id),")")
+	revel.INFO.Println("Packet Received:","packet_type=>",formatter.Prettify(packet_type),"description=>",packet_description[packet_type].Description,"packet_length=>",packet_length,"sgu_id=>",formatter.Prettify(sgu_id))
+
+	result["incoming_sgu_id"] = utils.ToUint64(sgu_id)
+	result["incoming_timestamp"] = utils.ToUint64(timestamp)
 
 	client,_ := buffstreams.TcpClients.Get(conn.Address)
 	SGU_TCP_CONNECTION.Set(strconv.FormatUint(sgu_id,10),client)
@@ -83,10 +90,10 @@ func Wrap(conn *buffstreams.Client)map[string]interface{} {
 
 		if val.Out_type == "int64"{
 			byte_arr = preparePacket8(packet_data[off:off+len])
-			result[val.Name] = int64(binary.BigEndian.Uint64([]byte(byte_arr)))
+			result[val.Name] = (binary.BigEndian.Uint64([]byte(byte_arr)))
 		}else{
 			byte_arr = preparePacket(packet_data[off:off+len])
-			result[val.Name] = int64(binary.BigEndian.Uint32([]byte(byte_arr)))
+			result[val.Name] = uint64(binary.BigEndian.Uint32([]byte(byte_arr)))
 		}
 
 		last_offset = off+len
@@ -97,7 +104,7 @@ func Wrap(conn *buffstreams.Client)map[string]interface{} {
 	}
 
 
-
+	result["iterate"] = utils.ToUint64(iterate)
 
 	for i:=0;i<iterate-1;i++{
 		for j:=0;j<len(repeat_parameter);j++{
@@ -105,10 +112,10 @@ func Wrap(conn *buffstreams.Client)map[string]interface{} {
 			len,_ := strconv.Atoi(pa.Length)
 			if pa.Out_type == "int64"{
 				byte_arr = preparePacket8(packet_data[last_offset:last_offset+len])
-				result[pa.Name+"_"+strconv.Itoa(i+1)] = int64(binary.BigEndian.Uint64([]byte(byte_arr)))
+				result[pa.Name+"_"+strconv.Itoa(i+1)] = (binary.BigEndian.Uint64([]byte(byte_arr)))
 			}else{
 				byte_arr = preparePacket(packet_data[last_offset:last_offset+len])
-				result[pa.Name+"_"+strconv.Itoa(i+1)] = int64(binary.BigEndian.Uint32([]byte(byte_arr)))
+				result[pa.Name+"_"+strconv.Itoa(i+1)] = uint64(binary.BigEndian.Uint32([]byte(byte_arr)))
 			}
 			last_offset += len
 		}
@@ -126,11 +133,11 @@ func Wrap(conn *buffstreams.Client)map[string]interface{} {
 		job := goworker.Job{"packet_queue", payload}
 		goworker.Enqueue(&job)
 
-		revel.INFO.Println("Response Packet:", params[1],"(",formatter.ToHex(params[1]),")", "Enqueued")
+		revel.INFO.Println("Response Packet:", formatter.Prettify(params[1]), "Enqueued")
 	}
 
-
 	revel.INFO.Println(result)
+	HandlePackets(packet_type, result)
 	return nil
 
 }

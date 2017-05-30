@@ -25,3 +25,7 @@ func ToHex(val interface{}) string{
 	hex.Encode(dst, src)
 	return strings.Trim(string(dst),"0")
 }
+
+func Prettify(val interface{}) string  {
+	return  utils.ToStr(val)+" ("+ToHex(val)+")"
+}

@@ -1,6 +1,7 @@
 delim: 0x7E
 packets:
       0x0002:
+        description: Keep Alive
         response_packet: 0x00022
         parameters:
           "29":
@@ -9,7 +10,57 @@ packets:
             length: "1"
             name: status
 
+
+      0x0003:
+        description: SCU List
+        response_packet: 0x0023
+        parameters:
+          "29":
+            in_type: string
+            out_type: int64
+            length: "2"
+            name: num_of_scus
+
+          "repeat_31":
+            in_type: string
+            out_type: uint64
+            length: "8"
+            name: scuid
+
+          "repeat_39":
+            in_type: string
+            out_type: uint64
+            length: "1"
+            name: reserved
+
+      0x0004:
+        description: SCU Unreachable
+        response_packet: 0x0024
+        parameters:
+          "29":
+            in_type: string
+            out_type: int64
+            length: "8"
+            name: scuid
+
+          "37":
+            in_type: string
+            out_type: uint64
+            length: "1"
+            name: scu_response
+
+      0x0005:
+        description: SCU Added
+        response_packet: 0x0025
+        parameters:
+          "29":
+            in_type: string
+            out_type: int64
+            length: "8"
+            name: scuid
+
       0x3001:
+        description: Get/Set Digital Output State
         response_packet: -1
         parameters:
           "29":
@@ -60,11 +111,9 @@ packets:
             length: "1"
             name: op4
 
-
-
       0xe000:
+        description: Input Status
         response_packet: 0xe0001
-
         parameters:
           "29":
             in_type: string
@@ -173,13 +222,3 @@ packets:
             out_type: int64
             length: "1"
             name: rx_signal_strength
-
-
-
-      0x0003:
-        response_packet: -1
-        parameters:
-          "0":
-            in_type: string
-            out_type: string
-            length: "16"
