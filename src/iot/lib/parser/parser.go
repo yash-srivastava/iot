@@ -16,20 +16,21 @@ import (
 var (
 	SGU_TCP_CONNECTION cmap.ConcurrentMap
 	SGU_SCU_LIST cmap.ConcurrentMap
+	PACKET_CONFIG Sgu_packet
+	RESPONSE_PACKET_CONFIG Sgu_response_packet
+	CUSTOM_PACKET_CONFIG Sgu_packet
 )
 
 func Wrap(conn *buffstreams.Client)map[string]interface{} {
 
 
 	incoming := Incoming{}
-	var result map[string]uint64
-	result = make(map[string]uint64)
+	var result map[string]interface{}
+	result = make(map[string]interface{})
 
 	packet_data := conn.Data
 
-	packet_config := GetSguPacket()
-
-	delim := int(packet_config.Delim)
+	delim := int(PACKET_CONFIG.Delim)
 
 	byte_arr :=preparePacket(packet_data[0:1])
 
@@ -59,7 +60,7 @@ func Wrap(conn *buffstreams.Client)map[string]interface{} {
 	byte_arr = preparePacket(packet_data[27:29])
 	packet_type := int(binary.BigEndian.Uint32([]byte(byte_arr)))
 
-	packet_description := packet_config.Packets
+	packet_description := PACKET_CONFIG.Packets
 
 	revel.INFO.Println("Packet Received:","packet_type=>",formatter.Prettify(packet_type),"description=>",packet_description[packet_type].Description,"packet_length=>",packet_length,"sgu_id=>",formatter.Prettify(sgu_id))
 
@@ -70,22 +71,21 @@ func Wrap(conn *buffstreams.Client)map[string]interface{} {
 	SGU_TCP_CONNECTION.Set(strconv.FormatUint(sgu_id,10),client)
 
 
-	var repeat_parameter []Parameters
+	var repeat_parameter Packets
+	repeat_parameter.Parameters = make(map[string]Parameters)
 	last_offset := 0
 	iterate := 0
-	for offset,val :=range packet_description[packet_type].Parameters{
-		off := 0
-		len :=0
-		if strings.Contains(offset,"repeat_"){
-			off,_ = strconv.Atoi(strings.Split(offset,"repeat_")[1])
-			len,_ = strconv.Atoi(val.Length)
 
+	for offset,val :=range packet_description[packet_type].Parameters{
+
+		splitted_arr := strings.Split(offset,"_")
+		splitted_len := GetLength(splitted_arr)
+		off,_ := strconv.Atoi(splitted_arr[splitted_len-1])
+		len,_ := strconv.Atoi(val.Length)
+		if strings.Contains(offset,"repeat_"){
 			//save for repeat
 			ma := val
-			repeat_parameter = append(repeat_parameter, ma)
-		}else {
-			off,_ = strconv.Atoi(offset)
-			len,_ = strconv.Atoi(val.Length)
+			repeat_parameter.Parameters[offset] = ma
 		}
 
 		if val.Out_type == "int64"{
@@ -99,7 +99,15 @@ func Wrap(conn *buffstreams.Client)map[string]interface{} {
 		last_offset = off+len
 
 		if strings.Contains(val.Name, "num_"){
-			iterate = int(result[val.Name])
+			iterate = utils.ToInt(result[val.Name])
+		}
+
+		if strings.Contains(offset, "length_"){
+			custom_response := HandleCustomPackets(packet_type, packet_data,off+len)
+			for ck,cv:=range custom_response {
+				result[ck] = cv
+			}
+			last_offset += utils.ToInt(result[val.Name])
 		}
 	}
 
@@ -107,15 +115,22 @@ func Wrap(conn *buffstreams.Client)map[string]interface{} {
 	result["iterate"] = utils.ToUint64(iterate)
 
 	for i:=0;i<iterate-1;i++{
-		for j:=0;j<len(repeat_parameter);j++{
-			pa := repeat_parameter[j]
-			len,_ := strconv.Atoi(pa.Length)
-			if pa.Out_type == "int64"{
+		suffix := "_"+strconv.Itoa(i+1)
+		for off,v:=range repeat_parameter.Parameters{
+			len,_ := strconv.Atoi(v.Length)
+			if v.Out_type == "int64"{
 				byte_arr = preparePacket8(packet_data[last_offset:last_offset+len])
-				result[pa.Name+"_"+strconv.Itoa(i+1)] = (binary.BigEndian.Uint64([]byte(byte_arr)))
+				result[v.Name+suffix] = (binary.BigEndian.Uint64([]byte(byte_arr)))
 			}else{
 				byte_arr = preparePacket(packet_data[last_offset:last_offset+len])
-				result[pa.Name+"_"+strconv.Itoa(i+1)] = uint64(binary.BigEndian.Uint32([]byte(byte_arr)))
+				result[v.Name+suffix] = uint64(binary.BigEndian.Uint32([]byte(byte_arr)))
+			}
+			if strings.Contains(off, "length_") {
+				custom_response := HandleCustomPackets(packet_type, packet_data,last_offset+len)
+				for ck,cv:=range custom_response {
+					result[ck+suffix] = cv
+				}
+				last_offset += utils.ToInt(result[v.Name+suffix])
 			}
 			last_offset += len
 		}
@@ -148,6 +163,14 @@ func readPacket(arr []string, i int, j int) string{
 		result+=arr[i]
 	}
 	return result
+}
+
+func GetLength(arr []string)int{
+	return len(arr)
+}
+
+func GetStringLength(arr string)int{
+	return len(arr)
 }
 func preparePacket(arr []byte) []byte{
 	var result []byte

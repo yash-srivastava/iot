@@ -5,6 +5,8 @@ import (
 	"encoding/json"
 	"io"
 	"io/ioutil"
+	"strconv"
+	"strings"
 )
 
 type Reader struct {
@@ -45,4 +47,12 @@ func CloneBody(body io.ReadCloser, counter int) []io.ReadCloser {
 		result[i] = Reader{bytes.NewBuffer(buf)}
 	}
 	return result
+}
+
+func ConvertBytesToString( b []byte ) string {
+	s := make([]string,len(b))
+	for i := range b {
+		s[i] = strconv.Itoa(int(b[i]))
+	}
+	return strings.Join(s,"")
 }

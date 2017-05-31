@@ -15,7 +15,7 @@ func Start_tcp_server()*buffstreams.Manager  {
 	cfg := buffstreams.TCPListenerConfig {
 		EnableLogging: true, // true will have log messages printed to stdout/stderr, via log
 		MaxMessageSize: 4096,
-		Address: buffstreams.FormatAddress("", strconv.Itoa(6000)),
+		Address: buffstreams.FormatAddress("", strconv.Itoa(62000)),
 		Callback: HandleTcpRequest, // Any function type that adheres to this signature, you'll need to deserialize in here if need be
 	}
 

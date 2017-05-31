@@ -1,0 +1,71 @@
+delim: 0x7E
+packets:
+      0x0006:
+        description: Modbus Response
+        response_packet: -1
+        parameters:
+          "3":
+            in_type: string
+            out_type: float32
+            length: "4"
+            name: Watts Total
+
+          "35":
+            in_type: string
+            out_type: float32
+            length: "4"
+            name: PF Total
+
+          "51":
+            in_type: string
+            out_type: float32
+            length: "4"
+            name: Va
+
+          "89":
+            in_type: string
+            out_type: float32
+            length: "4"
+            name: Vr
+
+          "91":
+            in_type: string
+            out_type: float32
+            length: "4"
+            name: Vy
+
+          "95":
+            in_type: string
+            out_type: float32
+            length: "4"
+            name: Vb
+
+          "103":
+            in_type: string
+            out_type: float32
+            length: "4"
+            name: Ir
+
+          "107":
+            in_type: string
+            out_type: float32
+            length: "4"
+            name: Iy
+
+          "111":
+            in_type: string
+            out_type: float32
+            length: "4"
+            name: Ib
+
+          "115":
+            in_type: string
+            out_type: float32
+            length: "4"
+            name: Frequency
+
+          "119":
+            in_type: string
+            out_type: float32
+            length: "4"
+            name: Kwh

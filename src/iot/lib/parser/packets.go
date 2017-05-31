@@ -78,3 +78,18 @@ func GetSguResponsePacket() Sgu_response_packet {
 	}
 	return c
 }
+
+
+func GetCustomPackets() Sgu_packet {
+
+	yamlFile, err := ioutil.ReadFile("custom_packets.yml")
+	if err != nil {
+		log.Printf("yamlFile.Get err   #%v ", err)
+	}
+	c := Sgu_packet{}
+	err = yaml.Unmarshal(yamlFile, &c)
+	if err != nil {
+		log.Fatalf("Unmarshal: %v", err)
+	}
+	return c
+}

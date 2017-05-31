@@ -10,11 +10,10 @@ import (
 )
 
 func SendResponsePacket(pack_type int, incoming parser.Incoming){
-	packet_config := parser.GetSguResponsePacket()
 
-	packet_description := packet_config.Response_packets
+	packet_description := parser.RESPONSE_PACKET_CONFIG.Response_packets
 
-	delim := packet_config.Delim
+	delim := parser.RESPONSE_PACKET_CONFIG.Delim
 
 	packet_type := int(pack_type)
 

@@ -25,6 +25,9 @@ func SetTimeFormat(){
 func InitForConn(){
 	parser.SGU_TCP_CONNECTION = cmap.New()
 	parser.SGU_SCU_LIST = cmap.New()
+	parser.PACKET_CONFIG = parser.GetSguPacket()
+	parser.RESPONSE_PACKET_CONFIG = parser.GetSguResponsePacket()
+	parser.CUSTOM_PACKET_CONFIG = parser.GetCustomPackets()
 }
 
 func StartupScript() {

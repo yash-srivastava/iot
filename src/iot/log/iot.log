@@ -14,3 +14,22 @@ ERROR 2017/05/29 16:40:56 # iot/lib/parser
 src/iot/lib/parser/parser.go:27: parameters redeclared in this block
 	previous declaration at src/iot/lib/parser/packets.go:19
 
+INFO  2017/05/31 02:19:59 Loaded module static
+INFO  2017/05/31 02:19:59 Initialized Revel v0.15.0 (2017-05-11) for >= go1.7
+INFO  2017/05/31 02:19:59 Running iot (iot) in prod mode
+INFO  2017/05/31 02:19:59 Cleaning dir tmp
+INFO  2017/05/31 02:19:59 Cleaning dir routes
+INFO  2017/05/31 02:19:59 Cleaning dir tmp
+INFO  2017/05/31 02:19:59 Cleaning dir routes
+INFO  2017/05/31 02:20:01 Loaded module static
+INFO  2017/05/31 02:20:01 Initialized Revel v0.15.0 (2017-05-11) for >= go1.7
+INFO  2017/05/31 02:20:01 Running revel server
+INFO  2017/05/31 02:20:01 Skipping routes for inactive module testrunner
+INFO  2017/05/31 02:20:10 Sync Found :)
+INFO  2017/05/31 02:20:10 126,0,46,53,56,49,51,55,54,50,48,49,54,48,54,49,55,48,52,50,55,51,53,31,0,0,0,0,3,0,2,0,0,0,60,0,0,0,0,4,0,0,0,52,0,0,0,0,0
+INFO  2017/05/31 02:20:10 Packet Received: packet_type=> 3 (3) description=> SCU List packet_length=> 46 sgu_id=> 58515459880758 (353831333736)
+INFO  2017/05/31 02:20:10 Response Packet: 35 (23) Enqueued
+INFO  2017/05/31 02:20:10 map[scuid:60 reserved:4 iterate:2 scuid_1:52 reserved_1:0 incoming_sgu_id:58515459880758 incoming_timestamp:3616444609585361207 num_of_scus:2]
+INFO  2017/05/31 02:20:10 Following SCUs Found: [60 52]  For SGU: 58515459880758 (353831333736)
+INFO  2017/05/31 02:20:10 Sending Packet: packet_type=> 35 (23) description=> SCU List sgu_id=> 58515459880758 (353831333736)
+WARN  2017/05/31 02:20:22 EOF
