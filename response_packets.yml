@@ -32,3 +32,11 @@ response_packets:
           "status":
               offset: 29
               length: 1
+
+      0xe001:
+        description: Input Status
+        length: 30
+        response_parameters:
+          "status":
+              offset: 29
+              length: 1

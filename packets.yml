@@ -140,7 +140,7 @@ packets:
 
       0xe000:
         description: Input Status
-        response_packet: 0xe0001
+        response_packet: 0xe001
         parameters:
           "29":
             in_type: string

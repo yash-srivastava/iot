@@ -47,7 +47,7 @@ func SendResponsePacket(pack_type int, incoming parser.Incoming){
 		revel.WARN.Println("Invalid Connection")
 	}
 
-	revel.INFO.Println("Sending Packet:","packet_type=>",formatter.Prettify(packet_type),"description=>",packet_description[packet_type].Description,"sgu_id=>",formatter.Prettify(sgu_id))
+	revel.INFO.Println("Sending Packet:","packet_type=>",formatter.Prettify(packet_type),"| description=>",packet_description[packet_type].Description,"| sgu_id=>",formatter.Prettify(sgu_id))
 	_,e:=conv.Write(response)
 	if e!=nil{
 		revel.ERROR.Print(e.Error())
