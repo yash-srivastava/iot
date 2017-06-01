@@ -5,32 +5,24 @@ import (
 	"encoding/binary"
 	"strings"
 	"github.com/StabbyCutyou/buffstreams"
-	"github.com/orcaman/concurrent-map"
 	"github.com/benmanns/goworker"
 	"iot/lib/formatter"
 	"github.com/revel/revel"
 	"iot/lib/utils"
+	"iot/conf"
 )
 
-
-var (
-	SGU_TCP_CONNECTION cmap.ConcurrentMap
-	SGU_SCU_LIST cmap.ConcurrentMap
-	PACKET_CONFIG Sgu_packet
-	RESPONSE_PACKET_CONFIG Sgu_response_packet
-	CUSTOM_PACKET_CONFIG Sgu_packet
-)
 
 func Wrap(conn *buffstreams.Client)map[string]interface{} {
 
 
-	incoming := Incoming{}
+	incoming := conf.Incoming{}
 	var result map[string]interface{}
 	result = make(map[string]interface{})
 
 	packet_data := conn.Data
 
-	delim := int(PACKET_CONFIG.Delim)
+	delim := int(conf.PACKET_CONFIG.Delim)
 
 	byte_arr :=preparePacket(packet_data[0:1])
 
@@ -60,7 +52,7 @@ func Wrap(conn *buffstreams.Client)map[string]interface{} {
 	byte_arr = preparePacket(packet_data[27:29])
 	packet_type := int(binary.BigEndian.Uint32([]byte(byte_arr)))
 
-	packet_description := PACKET_CONFIG.Packets
+	packet_description := conf.PACKET_CONFIG.Packets
 
 	revel.INFO.Println("Packet Received:","packet_type=>",formatter.Prettify(packet_type),"| description=>",packet_description[packet_type].Description,"| packet_length=>",packet_length,"| sgu_id=>",formatter.Prettify(sgu_id))
 
@@ -68,11 +60,11 @@ func Wrap(conn *buffstreams.Client)map[string]interface{} {
 	result["incoming_timestamp"] = utils.ToUint64(timestamp)
 
 	client,_ := buffstreams.TcpClients.Get(conn.Address)
-	SGU_TCP_CONNECTION.Set(strconv.FormatUint(sgu_id,10),client)
+	conf.SGU_TCP_CONNECTION.Set(strconv.FormatUint(sgu_id,10),client)
 
 
-	var repeat_parameter Packets
-	repeat_parameter.Parameters = make(map[string]Parameters)
+	var repeat_parameter conf.Packets
+	repeat_parameter.Parameters = make(map[string]conf.Parameters)
 	last_offset := 0
 	iterate := 0
 

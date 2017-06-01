@@ -5,10 +5,10 @@ import (
 	"iot/lib/sgu_utils"
 	"errors"
 	"iot/lib/formatter"
-	"iot/lib/parser"
 	"iot/lib/sender"
 	"encoding/json"
 	"github.com/revel/revel"
+	"iot/conf"
 )
 
 func ProcessPacket(task string, args ...interface{}) error {
@@ -25,7 +25,7 @@ func ProcessPacket(task string, args ...interface{}) error {
 		}
 		sgu_utils.ParseInputPackets(&client)
 	}else if name == "send_response_packets"{
-		incoming := parser.Incoming{}
+		incoming := conf.Incoming{}
 
 		packet_type := args[1].(json.Number)
 

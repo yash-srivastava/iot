@@ -7,6 +7,7 @@ import (
 	"strconv"
 	"math"
 	"encoding/binary"
+	"iot/conf"
 )
 
 func HandlePackets(packet_type int, input map[string]interface{}){
@@ -23,9 +24,9 @@ func HandlePackets(packet_type int, input map[string]interface{}){
 				scuids = append(scuids, utils.ToUint64(input["scuid_" + utils.ToStr(i)]))
 			}
 		}
-		tmp := Scu{}
+		tmp := conf.Scu{}
 		tmp.ScuIds = scuids
-		SGU_SCU_LIST.Set(utils.ToStr(sgu_id), tmp)
+		conf.SGU_SCU_LIST.Set(utils.ToStr(sgu_id), tmp)
 		revel.INFO.Println("Following SCUs Found:", scuids, " For SGU:", formatter.Prettify(sgu_id))
 	}
 
@@ -34,9 +35,9 @@ func HandlePackets(packet_type int, input map[string]interface{}){
 		var newscuids []uint64
 		sgu_id := utils.ToUint64(input["incoming_sgu_id"])
 
-		scu,_ := SGU_SCU_LIST.Get(utils.ToStr(sgu_id))
+		scu,_ := conf.SGU_SCU_LIST.Get(utils.ToStr(sgu_id))
 
-		incoming := Scu{}
+		incoming := conf.Scu{}
 		err := formatter.GetStructFromInterface(scu, &incoming)
 		if err!=nil{
 			revel.ERROR.Println(err)
@@ -54,29 +55,29 @@ func HandlePackets(packet_type int, input map[string]interface{}){
 
 		incoming.ScuIds = newscuids
 
-		SGU_SCU_LIST.Set(utils.ToStr(sgu_id), incoming)
+		conf.SGU_SCU_LIST.Set(utils.ToStr(sgu_id), incoming)
 		revel.INFO.Println("Following SCU Removed:", formatter.Prettify(rem_scu_id), " For SGU:", formatter.Prettify(sgu_id))
 	}
 
 	case 0x0005:{
 		sgu_id := input["incoming_sgu_id"]
 
-		scu,_ := SGU_SCU_LIST.Get(utils.ToStr(sgu_id))
-		incoming := Scu{}
+		scu,_ := conf.SGU_SCU_LIST.Get(utils.ToStr(sgu_id))
+		incoming := conf.Scu{}
 		err := formatter.GetStructFromInterface(scu, &incoming)
 		if err!=nil{
 			revel.ERROR.Println(err)
 		}
 		incoming.ScuIds = append(incoming.ScuIds, utils.ToUint64(input["scuid"]))
 
-		SGU_SCU_LIST.Set(utils.ToStr(sgu_id), incoming)
+		conf.SGU_SCU_LIST.Set(utils.ToStr(sgu_id), incoming)
 		revel.INFO.Println("Following SCU Added:", formatter.Prettify(input["scuid"]), " For SGU:", formatter.Prettify(sgu_id))
 	}
 	}
 }
 
 func HandleCustomPackets(packet_type int, packet_data []byte, start_from int) map[string]interface{}{
-	packet_des := CUSTOM_PACKET_CONFIG.Packets
+	packet_des := conf.CUSTOM_PACKET_CONFIG.Packets
 	response := make(map[string]interface{})
 
 	for offset,val :=range packet_des[packet_type].Parameters{

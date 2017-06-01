@@ -5,8 +5,7 @@ import (
 	"iot/lib/tcp_server"
 	"iot/lib/job_worker"
 	"time"
-	"iot/lib/parser"
-	"github.com/orcaman/concurrent-map"
+	"iot/conf"
 )
 
 var (
@@ -15,6 +14,7 @@ var (
 
 	// BuildTime revel app build-time (ldflags)
 	BuildTime string
+
 )
 
 func SetTimeFormat(){
@@ -23,11 +23,7 @@ func SetTimeFormat(){
 }
 
 func InitForConn(){
-	parser.SGU_TCP_CONNECTION = cmap.New()
-	parser.SGU_SCU_LIST = cmap.New()
-	parser.PACKET_CONFIG = parser.GetSguPacket()
-	parser.RESPONSE_PACKET_CONFIG = parser.GetSguResponsePacket()
-	parser.CUSTOM_PACKET_CONFIG = parser.GetCustomPackets()
+	conf.Init()
 }
 
 func StartupScript() {

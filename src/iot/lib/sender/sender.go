@@ -1,19 +1,19 @@
 package sender
 
 import (
-	"iot/lib/parser"
 	"strconv"
 	"github.com/StabbyCutyou/buffstreams"
 	"encoding/binary"
 	"iot/lib/formatter"
 	"github.com/revel/revel"
+	"iot/conf"
 )
 
-func SendResponsePacket(pack_type int, incoming parser.Incoming){
+func SendResponsePacket(pack_type int, incoming conf.Incoming){
 
-	packet_description := parser.RESPONSE_PACKET_CONFIG.Response_packets
+	packet_description := conf.RESPONSE_PACKET_CONFIG.Response_packets
 
-	delim := parser.RESPONSE_PACKET_CONFIG.Delim
+	delim := conf.RESPONSE_PACKET_CONFIG.Delim
 
 	packet_type := int(pack_type)
 
@@ -41,7 +41,7 @@ func SendResponsePacket(pack_type int, incoming parser.Incoming){
 		}
 	}
 
-	client,_ := parser.SGU_TCP_CONNECTION.Get(strconv.FormatUint(sgu_id,10))
+	client,_ := conf.SGU_TCP_CONNECTION.Get(strconv.FormatUint(sgu_id,10))
 	conv,ok := client.(*buffstreams.TCPConn)
 	if !ok{
 		revel.WARN.Println("Invalid Connection")
