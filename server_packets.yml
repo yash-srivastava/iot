@@ -1,0 +1,29 @@
+delim: 0x7E
+packets:
+      0x3000:
+        description: Get/Set Digital Output State
+        length: 42
+        parameters:
+          "scuid":
+              offset: 29
+              length: 8
+          "get_set":
+              offset: 37
+              length: 1
+          "pwm":
+              offset: 38
+              length: 1
+          "op1":
+              offset: 39
+              length: 1
+          "op2":
+              offset: 40
+              length: 1
+          "op3":
+              offset: 41
+              length: 1
+          "op4":
+              offset: 42
+              length: 1
+
+

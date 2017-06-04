@@ -28,13 +28,13 @@ type Parameters struct {
 
 type Sgu_response_packet struct {
 	Delim    int `json:"delim"`
-	Response_packets  map[int]Response_packets `json:"response_packets"`
+	Response_packets  map[int]Response_packets `json:"response_packets" yaml:"packets"`
 }
 
 type Response_packets struct {
 	Description string `json:"description"`
 	Length int `json:"length"`
-	Response_parameters map[string]Response_parameters `json:"response_parameters"`
+	Response_parameters map[string]Response_parameters `json:"response_parameters" yaml:"parameters"`
 }
 
 type Response_parameters struct {
@@ -50,6 +50,12 @@ type Incoming struct {
 type Scu struct {
 	ScuIds     []uint64 `json:"scu_ids"`
 }
+
+type Server_packet struct {
+	Delim    int `json:"delim" yaml:"delim"`
+	Response_packets  map[int]Response_packets `json:"packets" yaml:"packets"`
+}
+
 
 func GetSguPacket() Sgu_packet {
 
@@ -87,6 +93,20 @@ func GetCustomPackets() Sgu_packet {
 		log.Printf("yamlFile.Get err   #%v ", err)
 	}
 	c := Sgu_packet{}
+	err = yaml.Unmarshal(yamlFile, &c)
+	if err != nil {
+		log.Fatalf("Unmarshal: %v", err)
+	}
+	return c
+}
+
+func GetServerPacket() Server_packet {
+
+	yamlFile, err := ioutil.ReadFile("server_packets.yml")
+	if err != nil {
+		log.Printf("yamlFile.Get err   #%v ", err)
+	}
+	c := Server_packet{}
 	err = yaml.Unmarshal(yamlFile, &c)
 	if err != nil {
 		log.Fatalf("Unmarshal: %v", err)

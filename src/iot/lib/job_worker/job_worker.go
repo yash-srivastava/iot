@@ -22,6 +22,7 @@ func ProcessPacket(task string, args ...interface{}) error {
 
 		if err!=nil{
 			revel.ERROR.Println(err)
+			return err
 		}
 		sgu_utils.ParseInputPackets(&client)
 	}else if name == "send_response_packets"{
@@ -32,9 +33,12 @@ func ProcessPacket(task string, args ...interface{}) error {
 		err := formatter.GetStructFromInterface(args[2], &incoming)
 		if err!=nil{
 			revel.ERROR.Println(err)
+			return err
 		}
 		pack_type,_ := (packet_type.Int64())
 		sender.SendResponsePacket(int(pack_type), incoming)
+	}else if name == "send_3000"{
+		sender.SendServerPacket(0x3000, args[1])
 	}
 	return nil
 }
