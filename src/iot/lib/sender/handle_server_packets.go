@@ -38,7 +38,7 @@ func HandlePacket(packet_type int, params interface{}) Response{
 			response.Success = false
 			response.Message = "Invalid Packet Structure"
 		}
-		conf.Retry_3000.Set(get300Hash(packet), true)
+		conf.Retry_3000.Set(Get300Hash(packet), true)
 		go send_with_retry_3000(packet)
 		response.Success = true
 		response.Message = "Packet Enqueued Successfully"
@@ -56,7 +56,7 @@ func send_with_retry_3000(params Packet_3000){
 
 	for i:=0; i< params.Retry+1 ;i++  {
 
-		continue_retrial,_ := conf.Retry_3000.Get(get300Hash(params))
+		continue_retrial,_ := conf.Retry_3000.Get(Get300Hash(params))
 
 		if !continue_retrial.(bool) {
 			break
@@ -73,11 +73,12 @@ func send_with_retry_3000(params Packet_3000){
 	}
 }
 
-func get300Hash(params Packet_3000) string{
+func Get300Hash(params Packet_3000) string{
 	var result []string
 
 	result = append(result,utils.ToStr(params.SguId))
 	result = append(result,utils.ToStr(params.ScuId))
+	result = append(result,utils.ToStr(params.GetSet))
 
 	return strings.Join(result,"#")
 }

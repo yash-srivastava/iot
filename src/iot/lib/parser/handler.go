@@ -8,6 +8,7 @@ import (
 	"math"
 	"encoding/binary"
 	"iot/conf"
+	"iot/lib/sender"
 )
 
 func HandlePackets(packet_type int, input map[string]interface{}){
@@ -72,6 +73,21 @@ func HandlePackets(packet_type int, input map[string]interface{}){
 
 		conf.SGU_SCU_LIST.Set(utils.ToStr(sgu_id), incoming)
 		revel.INFO.Println("Following SCU Added:", formatter.Prettify(input["scuid"]), " For SGU:", formatter.Prettify(sgu_id))
+	}
+
+	case 0x3001:{
+		status := utils.ToInt(input["status"])
+
+		if status == 1{
+			sgu_id := utils.ToUint64(input["incoming_sgu_id"])
+			scu_id := utils.ToUint64(input["scuid"])
+			get_set := utils.ToInt(input["get_set"])
+			packet := sender.Packet_3000{}
+			packet.SguId = sgu_id
+			packet.ScuId = scu_id
+			packet.GetSet = get_set
+			conf.Retry_3000.Set(sender.Get300Hash(packet),false)
+		}
 	}
 	}
 }

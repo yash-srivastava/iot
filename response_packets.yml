@@ -1,10 +1,10 @@
 delim: 0x7E
-response_packets:
+packets:
 
       0x00022:
         description: Keep Alive
         length: 30
-        response_parameters:
+        parameters:
           "status":
               offset: 29
               length: 1
@@ -12,7 +12,7 @@ response_packets:
       0x00023:
         description: SCU List
         length: 30
-        response_parameters:
+        parameters:
           "status":
               offset: 29
               length: 1
@@ -20,7 +20,7 @@ response_packets:
       0x0024:
         description: SCU Unreachable
         length: 30
-        response_parameters:
+        parameters:
           "status":
               offset: 29
               length: 1
@@ -28,7 +28,7 @@ response_packets:
       0x0025:
         description: SCU Added
         length: 30
-        response_parameters:
+        parameters:
           "status":
               offset: 29
               length: 1
@@ -36,7 +36,7 @@ response_packets:
       0xe001:
         description: Input Status
         length: 30
-        response_parameters:
+        parameters:
           "status":
               offset: 29
               length: 1
