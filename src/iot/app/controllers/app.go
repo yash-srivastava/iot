@@ -22,6 +22,7 @@ func (c App) Send_3000() revel.Result {
 	params := sender.Packet_3000{}
 	params.SguId = utils.ToUint64(c.Params.Form.Get("sgu_id"))
 	params.ScuId = utils.ToUint64(c.Params.Form.Get("scu_id"))
+	params.GetSet =utils.ToInt(c.Params.Form.Get("get_set"))
 	params.Pwm = utils.ToInt(c.Params.Form.Get("pwm"))
 	params.Op1 = utils.ToInt(c.Params.Form.Get("op1"))
 	params.Op2 = utils.ToInt(c.Params.Form.Get("op2"))
