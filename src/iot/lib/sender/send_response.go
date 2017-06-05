@@ -39,7 +39,7 @@ func SendResponsePacket(pack_type int, incoming conf.Incoming){
 
 
 
-	revel.INFO.Println("Sending Packet:","packet_type=>",formatter.Prettify(packet_type),"| description=>",packet_description[packet_type].Description,"| sgu_id=>",formatter.Prettify(sgu_id))
+	revel.INFO.Println("Sending Packet:","packet_type=>",formatter.Prettify(packet_type),"| description=>",packet_description[packet_type].Description,"| sgu_id=>",formatter.Prettify(sgu_id),"| seq_no=>",formatter.Prettify(seq_no))
 	_,e:=conn.Write(response)
 	if e!=nil{
 		revel.ERROR.Print(e.Error())
