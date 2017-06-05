@@ -32,9 +32,11 @@ func GetConnectionManager()*buffstreams.Manager{
 	return bm
 }
 func HandleTcpRequest(conn buffstreams.Client) error {
+	var duplicate buffstreams.Client
+	duplicate = conn
 	params := make([]interface{}, 2)
 	params[0] = "parse_sgu_packets"
-	params[1] = conn
+	params[1] = duplicate
 
 	payload := goworker.Payload{"packets", params}
 	job := goworker.Job{"packet_queue", payload}
