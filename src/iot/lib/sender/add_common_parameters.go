@@ -2,7 +2,7 @@ package sender
 
 import "time"
 
-func AddCommonParameters(delim byte, sgu_id uint64, seq_no uint64, length int, packet_type int,) []byte {
+func AddCommonParameters(delim byte, sgu_id uint64, seq_no uint64, length int, packet_type int) []byte {
 
 	var response []byte
 	response = make([]byte, length)

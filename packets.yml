@@ -1,5 +1,40 @@
 delim: 0x7E
 packets:
+      0x0001:
+        description: Reset Packet
+        response_packet: 0x11
+        parameters:
+          "29":
+            in_type: string
+            out_type: int64
+            length: "8"
+            name: scuid
+          "37":
+            in_type: string
+            out_type: int64
+            length: "1"
+            name: reset_reason
+          "38":
+            in_type: string
+            out_type: int64
+            length: "1"
+            name: sgu_scu
+          "39":
+            in_type: string
+            out_type: int64
+            length: "1"
+            name: major_ver
+          "40":
+            in_type: string
+            out_type: int64
+            length: "1"
+            name: minor_ver
+          "41":
+            in_type: string
+            out_type: int64
+            length: "1"
+            name: reserved
+
       0x0002:
         description: Keep Alive
         response_packet: 0x00022
