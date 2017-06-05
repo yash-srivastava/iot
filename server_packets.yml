@@ -2,7 +2,7 @@ delim: 0x7E
 packets:
       0x3000:
         description: Get/Set Digital Output State
-        length: 42
+        length: 43
         parameters:
           "scuid":
               offset: 29

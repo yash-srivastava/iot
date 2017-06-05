@@ -50,3 +50,4 @@ src/iot_client/lib/dial_tcp/dial_tcp.go:35: 3 evaluated but not used
 
 ERROR 2017/05/30 23:43:09 Error running: exit status 1
 ERROR 2017/05/30 23:53:10 Error running: exit status 1
+ERROR 2017/06/05 15:05:19 Error running: exit status 1
