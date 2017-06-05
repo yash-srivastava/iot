@@ -23,7 +23,7 @@ func ToHex(val interface{}) string{
 	binary.BigEndian.PutUint64(src, input)
 	dst := make([]byte, hex.EncodedLen(len(src)))
 	hex.Encode(dst, src)
-	return strings.Trim(string(dst),"0")
+	return strings.TrimLeft(string(dst),"0")
 }
 
 func Prettify(val interface{}) string  {
