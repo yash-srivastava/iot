@@ -82,10 +82,8 @@ func scuPresent(sgu_id uint64, scu_id uint64) bool{
 
 
 func add_byte_array_to_response(offset int, length int,val []byte, data []byte) []byte{
-	revel.INFO.Println("data=>",data, "len=>",len(data))
 	for i := offset;i <  offset + length ; i++{
 		data[i] = val [i-offset]
 	}
-	revel.INFO.Println("done")
 	return data
 }
