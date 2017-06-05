@@ -13,7 +13,7 @@ func AddCommonParameters(delim byte, sgu_id uint64, seq_no uint64, length int, p
 	data := convertToByteArray(uint64(delim),1)
 	response = add_byte_array_to_response(0,1,data,response)
 
-	data = convertToByteArray(uint64(length),2)
+	data = convertToByteArray(uint64(length-3),2)
 	response = add_byte_array_to_response(1,2,data,response)
 
 	data = convertToByteArray(sgu_id,6)
