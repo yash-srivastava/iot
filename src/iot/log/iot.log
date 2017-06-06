@@ -33,3 +33,45 @@ INFO  2017/05/31 02:20:10 map[scuid:60 reserved:4 iterate:2 scuid_1:52 reserved_
 INFO  2017/05/31 02:20:10 Following SCUs Found: [60 52]  For SGU: 58515459880758 (353831333736)
 INFO  2017/05/31 02:20:10 Sending Packet: packet_type=> 35 (23) description=> SCU List sgu_id=> 58515459880758 (353831333736)
 WARN  2017/05/31 02:20:22 EOF
+INFO  2017/06/06 00:24:00 Loaded module static
+INFO  2017/06/06 00:24:00 Initialized Revel v0.15.0 (2017-05-11) for >= go1.7
+INFO  2017/06/06 00:24:00 Running iot (iot) in prod mode
+INFO  2017/06/06 00:24:00 Cleaning dir tmp
+INFO  2017/06/06 00:24:00 Cleaning dir routes
+INFO  2017/06/06 00:24:00 Cleaning dir tmp
+INFO  2017/06/06 00:24:00 Cleaning dir routes
+INFO  2017/06/06 00:24:01 Loaded module static
+INFO  2017/06/06 00:24:01 Initialized Revel v0.15.0 (2017-05-11) for >= go1.7
+INFO  2017/06/06 00:24:01 Running revel server
+INFO  2017/06/06 00:24:01 Skipping routes for inactive module testrunner
+INFO  2017/06/06 00:24:13 Loaded module static
+INFO  2017/06/06 00:24:13 Initialized Revel v0.15.0 (2017-05-11) for >= go1.7
+INFO  2017/06/06 00:24:13 Running iot (iot) in prod mode
+INFO  2017/06/06 00:24:13 Cleaning dir tmp
+INFO  2017/06/06 00:24:13 Cleaning dir routes
+INFO  2017/06/06 00:24:13 Cleaning dir tmp
+INFO  2017/06/06 00:24:13 Cleaning dir routes
+INFO  2017/06/06 00:24:14 Loaded module static
+INFO  2017/06/06 00:24:14 Initialized Revel v0.15.0 (2017-05-11) for >= go1.7
+INFO  2017/06/06 00:24:14 Running revel server
+INFO  2017/06/06 00:24:14 Skipping routes for inactive module testrunner
+ERROR 2017/06/06 00:24:14 Failed to listen: listen tcp :9000: bind: address already in use
+ERROR 2017/06/06 00:24:14 Error running: exit status 1
+INFO  2017/06/06 00:25:38 Loaded module static
+INFO  2017/06/06 00:25:38 Initialized Revel v0.15.0 (2017-05-11) for >= go1.7
+INFO  2017/06/06 00:25:38 Running iot (iot) in prod mode
+INFO  2017/06/06 00:25:38 Cleaning dir tmp
+INFO  2017/06/06 00:25:38 Cleaning dir routes
+INFO  2017/06/06 00:25:39 Cleaning dir tmp
+INFO  2017/06/06 00:25:39 Cleaning dir routes
+INFO  2017/06/06 00:25:40 Loaded module static
+INFO  2017/06/06 00:25:40 Initialized Revel v0.15.0 (2017-05-11) for >= go1.7
+INFO  2017/06/06 00:25:40 Running revel server
+INFO  2017/06/06 00:25:40 Skipping routes for inactive module testrunner
+INFO  2017/06/06 00:25:50 Sync Found :)
+INFO  2017/06/06 00:25:50 126046535649515554504849544854495548525055515331000030200060000040005200000
+INFO  2017/06/06 00:25:50 Packet Received: packet_type=> 3 (3) | description=> SCU List | packet_length=> 46 | sgu_id=> 58515459880758 (353831333736) | seq_no=> 520093696 (1f000000)
+INFO  2017/06/06 00:25:50 Response Packet: 35 (23) Enqueued
+INFO  2017/06/06 00:25:50 map[num_of_scus:2 scuid:60 reserved:4 iterate:2 scuid_1:52 reserved_1:0 incoming_sgu_id:58515459880758 incoming_timestamp:3616444609585361207]
+INFO  2017/06/06 00:25:50 Following SCUs Found: [60 52]  For SGU: 58515459880758 (353831333736)
+INFO  2017/06/06 00:25:50 Sending Packet: packet_type=> 35 (23) | description=> SCU List | sgu_id=> 58515459880758 (353831333736) | seq_no=> 520093696 (1f000000)
