@@ -76,7 +76,7 @@ func SendServerPacket(packet_type int, params interface{}){
 
 		}
 		revel.INFO.Println("Sending Packet:","packet_type=>",formatter.Prettify(packet_type),"| description=>",packet_description[packet_type].Description,"| sgu_id=>",formatter.Prettify(sgu_id))
-		revel.TRACE.Println("Packet:",packet)
+		revel.WARN.Println("Packet:",packet)
 		_,e:=conn.Write(response)
 		if e!=nil{
 			revel.ERROR.Print(e.Error())

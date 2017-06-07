@@ -54,7 +54,7 @@ func Wrap(conn *buffstreams.Client)map[string]interface{} {
 
 	packet_description := conf.PACKET_CONFIG.Packets
 
-	revel.TRACE.Println("Packet Received:","packet_type=>",formatter.Prettify(packet_type),"| description=>",packet_description[packet_type].Description,"| packet_length=>",packet_length,"| sgu_id=>",formatter.Prettify(sgu_id),"| seq_no=>",formatter.Prettify(seq_no))
+	revel.WARN.Println("Packet Received:","packet_type=>",formatter.Prettify(packet_type),"| description=>",packet_description[packet_type].Description,"| packet_length=>",packet_length,"| sgu_id=>",formatter.Prettify(sgu_id),"| seq_no=>",formatter.Prettify(seq_no))
 
 	result["incoming_sgu_id"] = utils.ToUint64(sgu_id)
 	result["incoming_timestamp"] = utils.ToUint64(timestamp)
@@ -143,7 +143,7 @@ func Wrap(conn *buffstreams.Client)map[string]interface{} {
 		revel.INFO.Println("Response Packet:", formatter.Prettify(params[1]), "Enqueued")
 	}
 
-	revel.TRACE.Println(result)
+	revel.WARN.Println(result)
 	HandlePackets(packet_type, result)
 	return nil
 
