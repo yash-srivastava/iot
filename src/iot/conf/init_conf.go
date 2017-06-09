@@ -2,6 +2,8 @@ package conf
 
 import (
 	"github.com/orcaman/concurrent-map"
+	"iot/lib/kafka"
+	"github.com/revel/revel"
 )
 
 var(
@@ -12,9 +14,15 @@ var(
 	RESPONSE_PACKET_CONFIG Sgu_response_packet
 	CUSTOM_PACKET_CONFIG Sgu_packet
 	SERVER_PACKET_CONFIG Server_packet
+	Producer kafka.Producer
 )
 
 func Init()  {
+	var err error
+	Producer,err = kafka.NewProducer("localhost:9092")
+	if err !=nil{
+		revel.ERROR.Println(err)
+	}
 	SGU_TCP_CONNECTION = cmap.New()
 	SGU_SCU_LIST = cmap.New()
 	Retry_3000 = cmap.New()

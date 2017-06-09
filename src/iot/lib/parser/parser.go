@@ -144,6 +144,7 @@ func Wrap(conn *buffstreams.Client)map[string]interface{} {
 	}
 
 	revel.WARN.Println(result)
+	conf.Producer.SendMessage("important",result)
 	HandlePackets(packet_type, result)
 	return nil
 

@@ -2,7 +2,7 @@ package controllers
 
 import (
 	"github.com/revel/revel"
-	"iot_client/lib/dial_tcp"
+	"iot_client/lib/kafka"
 )
 
 type App struct {
@@ -10,6 +10,7 @@ type App struct {
 }
 
 func (c App) Index() revel.Result {
-	go dial_tcp.Connect()
+	//go dial_tcp.Connect()
+	go kafka.NewConsumer()
 	return c.Render()
 }
