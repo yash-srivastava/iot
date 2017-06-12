@@ -1,0 +1,8 @@
+ERROR 2017/06/12 22:17:18 # iot_subscriber/lib/subscriber
+src/iot_subscriber/lib/subscriber/sqs_subscriber.go:30: cannot use &receive_params (type **sqs.ReceiveMessageInput) as type *sqs.ReceiveMessageInput in argument to q.ReceiveMessage
+
+ERROR 2017/06/12 22:17:46 Failed to listen: listen tcp :9000: bind: address already in use
+ERROR 2017/06/12 22:17:46 Error running: exit status 1
+ERROR 2017/06/12 22:18:51 # iot_subscriber/app
+src/iot_subscriber/app/init.go:7: imported and not used: "iot_subscriber/lib/job_worker"
+

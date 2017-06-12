@@ -10,6 +10,8 @@ import (
 	"github.com/revel/revel"
 	"iot/lib/utils"
 	"iot/conf"
+	"iot/lib/publisher"
+	"sort"
 )
 
 
@@ -56,6 +58,7 @@ func Wrap(conn *buffstreams.Client)map[string]interface{} {
 
 	revel.WARN.Println("Packet Received:","packet_type=>",formatter.Prettify(packet_type),"| description=>",packet_description[packet_type].Description,"| packet_length=>",packet_length,"| sgu_id=>",formatter.Prettify(sgu_id),"| seq_no=>",formatter.Prettify(seq_no))
 
+	result["packet_type"] = packet_type
 	result["incoming_sgu_id"] = utils.ToUint64(sgu_id)
 	result["incoming_timestamp"] = utils.ToUint64(timestamp)
 
@@ -106,9 +109,27 @@ func Wrap(conn *buffstreams.Client)map[string]interface{} {
 
 	result["iterate"] = utils.ToUint64(iterate)
 
+	var offsets []int
+	len_off := -1
+	for off,_:=range repeat_parameter.Parameters{
+		val := strings.TrimPrefix(off, "length_")
+		val = strings.TrimPrefix(val, "repeat_")
+		int_val := utils.ToInt(val)
+		if strings.Contains(off, "length_") {
+			len_off = int_val
+		}
+
+		offsets=append(offsets, int_val)
+	}
+	sort.Ints(offsets)
 	for i:=0;i<iterate-1;i++{
 		suffix := "_"+strconv.Itoa(i+1)
-		for off,v:=range repeat_parameter.Parameters{
+		for _, k := range offsets {
+			off := utils.ToStr(k)
+			if len_off == k{
+				off = "length_"+off
+			}
+			v := repeat_parameter.Parameters["repeat_"+off]
 			len,_ := strconv.Atoi(v.Length)
 			if v.Out_type == "int64"{
 				byte_arr = preparePacket8(packet_data[last_offset:last_offset+len])
@@ -126,6 +147,24 @@ func Wrap(conn *buffstreams.Client)map[string]interface{} {
 			}
 			last_offset += len
 		}
+		/*for off,v:=range repeat_parameter.Parameters{
+			len,_ := strconv.Atoi(v.Length)
+			if v.Out_type == "int64"{
+				byte_arr = preparePacket8(packet_data[last_offset:last_offset+len])
+				result[v.Name+suffix] = (binary.BigEndian.Uint64([]byte(byte_arr)))
+			}else{
+				byte_arr = preparePacket(packet_data[last_offset:last_offset+len])
+				result[v.Name+suffix] = uint64(binary.BigEndian.Uint32([]byte(byte_arr)))
+			}
+			if strings.Contains(off, "length_") {
+				custom_response := HandleCustomPackets(packet_type, packet_data,last_offset+len)
+				for ck,cv:=range custom_response {
+					result[ck+suffix] = cv
+				}
+				last_offset += utils.ToInt(result[v.Name+suffix])
+			}
+			last_offset += len
+		}*/
 	}
 
 
@@ -144,6 +183,7 @@ func Wrap(conn *buffstreams.Client)map[string]interface{} {
 	}
 
 	revel.WARN.Println(result)
+	publisher.Pub(result)
 	HandlePackets(packet_type, result)
 	return nil
 

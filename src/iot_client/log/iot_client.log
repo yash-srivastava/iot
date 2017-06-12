@@ -51,3 +51,65 @@ src/iot_client/lib/dial_tcp/dial_tcp.go:35: 3 evaluated but not used
 ERROR 2017/05/30 23:43:09 Error running: exit status 1
 ERROR 2017/05/30 23:53:10 Error running: exit status 1
 ERROR 2017/06/05 15:05:19 Error running: exit status 1
+ERROR 2017/06/12 02:47:37 Error running: exit status 1
+ERROR 2017/06/12 02:58:25 Error running: exit status 1
+ERROR 2017/06/12 03:04:29 Error running: exit status 1
+ERROR 2017/06/12 03:16:29 Error running: exit status 1
+ERROR 2017/06/12 03:18:57 Error running: exit status 1
+ERROR 2017/06/12 03:26:23 # iot_client/lib/subscriber
+src/iot_client/lib/subscriber/subscriber.go:20: cannot use svc (type *sns.SNS) as type client.ConfigProvider in argument to sqs.New:
+	*sns.SNS does not implement client.ConfigProvider (missing ClientConfig method)
+src/iot_client/lib/subscriber/subscriber.go:24: cannot use 10 (type int) as type *int64 in field value
+
+ERROR 2017/06/12 03:26:41 # iot_client/lib/subscriber
+src/iot_client/lib/subscriber/subscriber.go:4: imported and not used: "github.com/aws/aws-sdk-go/service/sns"
+src/iot_client/lib/subscriber/subscriber.go:20: cannot use svc (type *sqs.SQS) as type client.ConfigProvider in argument to sqs.New:
+	*sqs.SQS does not implement client.ConfigProvider (missing ClientConfig method)
+src/iot_client/lib/subscriber/subscriber.go:24: cannot use 10 (type int) as type *int64 in field value
+
+ERROR 2017/06/12 03:26:55 # iot_client/lib/subscriber
+src/iot_client/lib/subscriber/subscriber.go:19: cannot use svc (type *sqs.SQS) as type client.ConfigProvider in argument to sqs.New:
+	*sqs.SQS does not implement client.ConfigProvider (missing ClientConfig method)
+src/iot_client/lib/subscriber/subscriber.go:23: cannot use 10 (type int) as type *int64 in field value
+
+ERROR 2017/06/12 03:27:47 # iot_client/lib/subscriber
+src/iot_client/lib/subscriber/subscriber.go:22: cannot use 10 (type int) as type *int64 in field value
+
+ERROR 2017/06/12 03:32:43 # iot_client/lib/subscriber
+src/iot_client/lib/subscriber/subscriber.go:19: sqs.GetQueueUrlInput literal evaluated but not used
+
+ERROR 2017/06/12 12:36:38 # iot_client/lib/subscriber
+src/iot_client/lib/subscriber/subscriber.go:29: cannot use v.Body (type *string) as type []byte in argument to json.Unmarshal
+
+ERROR 2017/06/12 12:37:03 # iot_client/lib/subscriber
+src/iot_client/lib/subscriber/subscriber.go:29: cannot convert v.Body (type *string) to type []byte
+
+ERROR 2017/06/12 12:40:00 # iot_client/lib/subscriber
+src/iot_client/lib/subscriber/subscriber.go:29: cannot convert &v.Body (type **string) to type []byte
+
+ERROR 2017/06/12 13:08:03 # iot_client/lib/subscriber
+src/iot_client/lib/subscriber/subscriber.go:31: cannot use ma["Message"] (type interface {}) as type []byte in argument to json.Unmarshal: need type assertion
+
+ERROR 2017/06/12 13:11:33 # iot_client/lib/subscriber
+src/iot_client/lib/subscriber/subscriber.go:32: too many arguments to return
+	have (error)
+	want ()
+
+ERROR 2017/06/12 13:36:42 # iot_client/lib/subscriber
+src/iot_client/lib/subscriber/subscriber.go:29: cannot use v.Body (type *string) as type []byte in argument to json.Unmarshal
+
+ERROR 2017/06/12 13:36:59 # iot_client/lib/subscriber
+src/iot_client/lib/subscriber/subscriber.go:29: cannot convert v.Body (type *string) to type []byte
+
+ERROR 2017/06/12 13:40:23 # iot_client/lib/subscriber
+src/iot_client/lib/subscriber/subscriber.go:29: cannot convert &v.Body (type **string) to type []byte
+
+ERROR 2017/06/12 22:03:22 # iot_client/lib/subscriber
+src/iot_client/lib/subscriber/subscriber.go:44: undefined: aws.M in aws.M.Unmarshal
+
+ERROR 2017/06/12 22:05:26 Error running: exit status 2
+ERROR 2017/06/12 22:06:46 Error running: exit status 2
+ERROR 2017/06/12 22:10:30 # iot_client/lib/subscriber
+src/iot_client/lib/subscriber/subscriber.go:49: invalid operation: vv["Value"] (type interface {} does not support indexing)
+
+ERROR 2017/06/12 22:11:26 Error running: exit status 2
