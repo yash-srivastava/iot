@@ -29,6 +29,15 @@ type Packet_3000 struct {
 
 }
 
+type Packet_8000 struct {
+	SguId		uint64	` json:"sguid" `
+	ScuId 		uint64	` json:"scuid" `
+	GetSet		int	` json:"get_set" `
+	SchedulingId 	int 	` json:"scheduling_id" `
+	Pwm 		int 	` json:"pwm" `
+	Expression 	string 	` json:"expression" `
+}
+
 func HandlePacket(packet_type int, params interface{}) Response{
 	response := Response{}
 	switch packet_type {
@@ -41,6 +50,17 @@ func HandlePacket(packet_type int, params interface{}) Response{
 		}
 		conf.Retry_3000.Set(Get300Hash(packet), true)
 		go send_with_retry_3000(packet)
+		response.Success = true
+		response.Message = "Packet Enqueued Successfully"
+	}
+	case 0x8000:{
+		packet := Packet_8000{}
+		err := formatter.GetStructFromInterface(params, &packet)
+		if err!=nil{
+			response.Success = false
+			response.Message = "Invalid Packet Structure"
+		}
+		go send8000(packet)
 		response.Success = true
 		response.Message = "Packet Enqueued Successfully"
 	}
@@ -82,4 +102,15 @@ func Get300Hash(params Packet_3000) string{
 	result = append(result,utils.ToStr(params.GetSet))
 
 	return strings.Join(result,"#")
+}
+
+func send8000(params Packet_8000){
+	job_params := make([]interface{}, 2)
+	job_params[0] = "send_8000"
+	job_params[1] = params
+
+	payload := goworker.Payload{"packets", job_params}
+	job := goworker.Job{"sender_queue", payload}
+	goworker.Enqueue(&job)
+
 }

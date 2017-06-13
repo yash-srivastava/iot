@@ -39,6 +39,8 @@ func ProcessPacket(task string, args ...interface{}) error {
 		sender.SendResponsePacket(int(pack_type), incoming)
 	}else if name == "send_3000"{
 		sender.SendServerPacket(0x3000, args[1])
+	}else if name == "send_8000"{
+		sender.SendServerPacket(0x8000, args[1])
 	}
 	return nil
 }

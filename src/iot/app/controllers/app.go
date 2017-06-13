@@ -3,7 +3,6 @@ package controllers
 import (
 	"github.com/revel/revel"
 	"iot/lib/sender"
-	"encoding/json"
 	"iot/conf"
 	"iot/lib/utils"
 )
@@ -21,11 +20,20 @@ func (c App) Send_3000() revel.Result {
 
 	response := sender.Response{Success: false, Message:"Something went wrong"}
 	packet := sender.Packet_3000{}
-
-	params := c.Params.JSON
-	err := json.Unmarshal(params, &packet)
+	err := c.Params.BindJSON(&packet)
 	if err==nil{
 		response = sender.HandlePacket(0x3000, packet)
+	}
+	return c.RenderJSON(response)
+}
+
+func (c App) Send_8000() revel.Result {
+
+	response := sender.Response{Success: false, Message:"Something went wrong"}
+	packet := sender.Packet_8000{}
+	err := c.Params.BindJSON(&packet)
+	if err==nil{
+		response = sender.HandlePacket(0x8000, packet)
 	}
 	return c.RenderJSON(response)
 }
