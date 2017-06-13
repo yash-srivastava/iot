@@ -183,7 +183,9 @@ func Wrap(conn *buffstreams.Client)map[string]interface{} {
 	}
 
 	revel.WARN.Println(result)
-	go publisher.Pub(result)
+	if packet_description[packet_type].Publish == 1{
+		go publisher.Pub(result)
+	}
 	HandlePackets(packet_type, result)
 	return nil
 

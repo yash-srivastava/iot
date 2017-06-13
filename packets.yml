@@ -3,6 +3,7 @@ packets:
       0x0001:
         description: Reset Packet
         response_packet: 0x11
+        publish: 0
         parameters:
           "29":
             in_type: string
@@ -38,6 +39,7 @@ packets:
       0x0002:
         description: Keep Alive
         response_packet: 0x00022
+        publish: 0
         parameters:
           "29":
             in_type: string
@@ -48,6 +50,7 @@ packets:
       0x0003:
         description: SCU List
         response_packet: 0x0023
+        publish: 1
         parameters:
           "29":
             in_type: string
@@ -70,6 +73,7 @@ packets:
       0x0004:
         description: SCU Unreachable
         response_packet: 0x0024
+        publish: 1
         parameters:
           "29":
             in_type: string
@@ -86,6 +90,7 @@ packets:
       0x0005:
         description: SCU Added
         response_packet: 0x0025
+        publish: 1
         parameters:
           "29":
             in_type: string
@@ -96,6 +101,7 @@ packets:
       0x0006:
         description: Energy Packet
         response_packet: -1
+        publish: 1
         parameters:
           "29":
             in_type: string
@@ -124,6 +130,7 @@ packets:
       0x3001:
         description: Get/Set Digital Output State
         response_packet: -1
+        publish: 1
         parameters:
           "29":
             in_type: string
@@ -176,6 +183,7 @@ packets:
       0xe000:
         description: Input Status
         response_packet: 0xe001
+        publish: 1
         parameters:
           "29":
             in_type: string

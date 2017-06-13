@@ -15,6 +15,7 @@ type Sgu_packet struct {
 type Packets struct {
 	Description string `json:"description"`
 	Response_packet int `json:"response_packet"`
+	Publish 	int `json:"publish"`
 	Parameters map[string]Parameters	`json:"parameters"`
 }
 
