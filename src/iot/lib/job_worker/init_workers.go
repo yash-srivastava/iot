@@ -8,7 +8,7 @@ import (
 func Init()  {
 	settings := goworker.WorkerSettings{
 		URI:            "redis://localhost:6379/",
-		Connections:    100,
+		Connections:    10,
 		Queues:         []string{"packet_queue", "sender_queue"},
 		UseNumber:      true,
 		ExitOnComplete: false,
