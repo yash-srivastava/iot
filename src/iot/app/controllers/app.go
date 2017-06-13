@@ -4,6 +4,8 @@ import (
 	"github.com/revel/revel"
 	"iot/lib/sender"
 	"encoding/json"
+	"iot/conf"
+	"iot/lib/utils"
 )
 
 type App struct {
@@ -25,6 +27,32 @@ func (c App) Send_3000() revel.Result {
 	if err==nil{
 		response = sender.HandlePacket(0x3000, packet)
 	}
+	return c.RenderJSON(response)
+}
 
+func (c App) IsSguConnected() revel.Result {
+	response := sender.Response{Success: false, Message:"Something went wrong"}
+
+	params := make(map[string]uint64)
+	err := c.Params.BindJSON(&params)
+	if err==nil{
+		response.Data = conf.SGU_TCP_CONNECTION.Has(utils.ToStr(params["sguid"]))
+		response.Success = true
+		response.Message = ""
+	}
+	return c.RenderJSON(response)
+}
+
+func (c App) GetConnectedScus() revel.Result {
+	response := sender.Response{Success: false, Message:"Something went wrong"}
+
+	params := make(map[string]uint64)
+	err := c.Params.BindJSON(&params)
+	if err==nil{
+
+		response.Data,_ = conf.SGU_SCU_LIST.Get(utils.ToStr(params["sguid"]))
+		response.Success = true
+		response.Message = ""
+	}
 	return c.RenderJSON(response)
 }

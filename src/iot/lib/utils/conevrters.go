@@ -49,7 +49,7 @@ func CloneBody(body io.ReadCloser, counter int) []io.ReadCloser {
 	return result
 }
 
-func ConvertBytesToStringValue( b []byte ) string {
+func ConvertBytesToString( b []byte ) string {
 	s := make([]string,len(b))
 	for i := range b {
 		s[i] = strconv.Itoa(int(b[i]))

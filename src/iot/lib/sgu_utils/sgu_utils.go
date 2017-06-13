@@ -10,7 +10,7 @@ import (
 
 
 func ParseInputPackets(conn *buffstreams.Client)  {
-	string_data := utils.ConvertBytesToStringValue(conn.Data)
+	string_data := utils.ConvertBytesToString(conn.Data)
 	revel.INFO.Println(string_data)
 	parser.Wrap(conn)
 }

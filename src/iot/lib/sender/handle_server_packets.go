@@ -12,6 +12,7 @@ import (
 type Response struct {
 	Success bool ` json:"success" `
 	Message string ` json:"message" `
+	Data   interface{} ` json:"data" `
 }
 
 type Packet_3000 struct {

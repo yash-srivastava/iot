@@ -19,3 +19,5 @@ GET     /public/*filepath                       Static.Serve("public")
 *       /:controller/:action                    :controller.:action
 
 POST   /send-3000/                              App.Send_3000
+POST   /sgu-connected/                          App.IsSguConnected
+POST   /connected-scus/                         App.GetConnectedScus
