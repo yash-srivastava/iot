@@ -13,7 +13,7 @@ import (
 func SqsSubscribe(){
 	sess := session.New(&aws.Config{
 		Region:      aws.String("us-west-2"),
-		Credentials: credentials.NewStaticCredentials("AKIAJBSOCIO4LS7SWHGQ","AOlSQnLQ3RisqSkYHIE8E55BC88ikYQm8pwC5DHJ",""),
+		Credentials: credentials.NewStaticCredentials("AKIAJUP23A42CQISVMJA","S4GznWLNcIPzNb1ud1vIR8wq99XgwR0K7qj6FIGg",""),
 		MaxRetries:  aws.Int(5),
 	})
 

@@ -2,240 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3d738845-cc9a-44a6-b290-8113638a3b04" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gitignore" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/go-pry" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/protoc-gen-go" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/revel" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/revel.d/iot/iot" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/revel.d/iot_client/iot_client" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/constants.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/custom_packets.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/packets.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pkg/darwin_amd64/github.com/StabbyCutyou/buffstreams.a" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pkg/darwin_amd64/github.com/StabbyCutyou/buffstreams/test/message.a" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pkg/darwin_amd64/github.com/agtorre/gocolorize.a" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pkg/darwin_amd64/github.com/benmanns/goworker.a" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pkg/darwin_amd64/github.com/cihub/seelog.a" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pkg/darwin_amd64/github.com/cihub/seelog/archive.a" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pkg/darwin_amd64/github.com/cihub/seelog/archive/gzip.a" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pkg/darwin_amd64/github.com/cihub/seelog/archive/tar.a" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pkg/darwin_amd64/github.com/cihub/seelog/archive/zip.a" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pkg/darwin_amd64/github.com/garyburd/redigo/internal.a" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pkg/darwin_amd64/github.com/garyburd/redigo/redis.a" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pkg/darwin_amd64/github.com/golang/glog.a" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pkg/darwin_amd64/github.com/golang/protobuf/proto.a" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pkg/darwin_amd64/github.com/golang/protobuf/protoc-gen-go/descriptor.a" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pkg/darwin_amd64/github.com/golang/protobuf/protoc-gen-go/generator.a" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pkg/darwin_amd64/github.com/golang/protobuf/protoc-gen-go/grpc.a" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pkg/darwin_amd64/github.com/golang/protobuf/protoc-gen-go/plugin.a" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pkg/darwin_amd64/github.com/klauspost/compress/flate.a" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pkg/darwin_amd64/github.com/klauspost/compress/gzip.a" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pkg/darwin_amd64/github.com/klauspost/compress/zlib.a" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pkg/darwin_amd64/github.com/klauspost/cpuid.a" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pkg/darwin_amd64/github.com/mattn/go-colorable.a" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pkg/darwin_amd64/github.com/mgutz/ansi.a" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pkg/darwin_amd64/github.com/orcaman/concurrent-map.a" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pkg/darwin_amd64/github.com/pkg/errors.a" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pkg/darwin_amd64/github.com/revel/cmd/harness.a" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pkg/darwin_amd64/github.com/revel/config.a" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pkg/darwin_amd64/github.com/revel/cron.a" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pkg/darwin_amd64/github.com/revel/modules/jobs/app/controllers.a" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pkg/darwin_amd64/github.com/revel/modules/jobs/app/jobs.a" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pkg/darwin_amd64/github.com/revel/modules/static/app/controllers.a" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pkg/darwin_amd64/github.com/revel/modules/testrunner/app.a" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pkg/darwin_amd64/github.com/revel/modules/testrunner/app/controllers.a" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pkg/darwin_amd64/github.com/revel/revel.a" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pkg/darwin_amd64/github.com/revel/revel/testing.a" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pkg/darwin_amd64/github.com/robfig/pathtree.a" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pkg/darwin_amd64/github.com/youtube/vitess/go/acl.a" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pkg/darwin_amd64/github.com/youtube/vitess/go/cache.a" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pkg/darwin_amd64/github.com/youtube/vitess/go/pools.a" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pkg/darwin_amd64/github.com/youtube/vitess/go/sync2.a" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pkg/darwin_amd64/golang.org/x/net/context.a" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pkg/darwin_amd64/golang.org/x/net/websocket.a" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pkg/darwin_amd64/golang.org/x/sys/unix.a" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pkg/darwin_amd64/gopkg.in/fsnotify.v1.a" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pkg/darwin_amd64/gopkg.in/yaml.v2.a" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pkg/darwin_amd64/iot/app.a" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pkg/darwin_amd64/iot/app/controllers.a" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pkg/darwin_amd64/iot/lib/formatter.a" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pkg/darwin_amd64/iot/lib/job_worker.a" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pkg/darwin_amd64/iot/lib/parser.a" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pkg/darwin_amd64/iot/lib/sender.a" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pkg/darwin_amd64/iot/lib/sgu_utils.a" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pkg/darwin_amd64/iot/lib/tcp_server.a" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pkg/darwin_amd64/iot/lib/utils.a" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pkg/darwin_amd64/iot/lib/worker.a" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pkg/darwin_amd64/iot/tests.a" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pkg/darwin_amd64/iot_client/app.a" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pkg/darwin_amd64/iot_client/app/controllers.a" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pkg/darwin_amd64/iot_client/lib/dial_tcp.a" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pkg/darwin_amd64/iot_client/tests.a" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/response_packets.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server_packets.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/github.com/StabbyCutyou/buffstreams" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/github.com/acroca/go-symbols" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/github.com/agtorre/gocolorize" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/github.com/alecthomas/gometalinter" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/github.com/aws/aws-sdk-go" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/github.com/benmanns/goworker" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/github.com/boltdb/bolt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/github.com/cihub/seelog" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/github.com/cweill/gotests" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/github.com/fatih/gomodifytags" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/github.com/garyburd/redigo" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/github.com/go-sql-driver/mysql" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/github.com/golang/glog" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/github.com/golang/lint" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/github.com/golang/protobuf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/github.com/googollee/go-engine.io" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/github.com/googollee/go-socket.io" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/github.com/gorilla/websocket" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/github.com/jinzhu/gorm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/github.com/jinzhu/inflection" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/github.com/josharian/impl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/github.com/klauspost/compress" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/github.com/klauspost/cpuid" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/github.com/mattn/go-colorable" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/github.com/mgutz/ansi" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/github.com/nsf/gocode" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/github.com/orcaman/concurrent-map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/github.com/pkg/errors" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/github.com/ramya-rao-a/go-outline" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/github.com/revel/cmd" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/github.com/revel/config" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/github.com/revel/cron" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/github.com/revel/modules" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/github.com/revel/revel" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/github.com/robfig/pathtree" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/github.com/rogpeppe/godef" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/github.com/sqs/goreturns" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/github.com/tpng/gopkgs" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/github.com/youtube/vitess" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/github.com/zmb3/gogetdoc" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/golang.org/x/net" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/golang.org/x/sys" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/golang.org/x/tools" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/gopkg.in/fsnotify.v1" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/gopkg.in/yaml.v2" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/iot/.gitignore" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/iot/README.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/iot/app/controllers/app.go" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/iot/app/init.go" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/iot/app/views/App/Index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/iot/app/views/debug.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/iot/app/views/errors/404.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/iot/app/views/errors/500.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/iot/app/views/flash.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/iot/app/views/footer.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/iot/app/views/header.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/iot/conf/app.conf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/iot/conf/init_conf.go" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/iot/conf/packets.go" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/iot/conf/routes" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/iot/lib/formatter/formatter.go" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/iot/lib/job_worker/init_workers.go" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/iot/lib/job_worker/job_worker.go" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/iot/lib/parser/handler.go" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/iot/lib/parser/opp.go" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/iot/lib/parser/parser.go" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/iot/lib/parser/swap.go" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/iot/lib/publisher/publisher.go" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/iot/lib/sender/add_common_parameters.go" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/iot/lib/sender/handle_server_packets.go" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/iot/lib/sender/send_response.go" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/iot/lib/sender/send_server_packet.go" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/iot/lib/sgu_utils/sgu_utils.go" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/iot/lib/tcp_server/tcp_server.go" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/iot/lib/utils/conevrters.go" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/iot/lib/utils/types.go" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/iot/log/iot.log" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/iot/messages/sample.en" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/iot/public/css/bootstrap-3.3.6.min.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/iot/public/fonts/glyphicons-halflings-regular.ttf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/iot/public/fonts/glyphicons-halflings-regular.woff" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/iot/public/fonts/glyphicons-halflings-regular.woff2" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/iot/public/img/favicon.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/iot/public/js/bootstrap-3.3.6.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/iot/public/js/jquery-2.2.4.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/iot/tests/apptest.go" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/iot_client/.gitignore" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/iot_client/README.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/iot_client/app/controllers/app.go" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/iot_client/app/init.go" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/iot_client/app/views/App/Index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/iot_client/app/views/debug.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/iot_client/app/views/errors/404.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/iot_client/app/views/errors/500.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/iot_client/app/views/flash.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/iot_client/app/views/footer.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/iot_client/app/views/header.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/iot_client/conf/app.conf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/iot_client/conf/routes" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/iot_client/lib/dial_tcp/dial_tcp.go" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/iot_client/lib/subscriber/subscriber.go" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/iot_client/log/iot_client.log" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/iot_client/messages/sample.en" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/iot_client/public/css/bootstrap-3.3.6.min.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/iot_client/public/fonts/glyphicons-halflings-regular.ttf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/iot_client/public/fonts/glyphicons-halflings-regular.woff" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/iot_client/public/fonts/glyphicons-halflings-regular.woff2" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/iot_client/public/img/favicon.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/iot_client/public/js/bootstrap-3.3.6.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/iot_client/public/js/jquery-2.2.4.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/iot_client/tests/apptest.go" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/iot_subscriber/.gitignore" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/iot_subscriber/README.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/iot_subscriber/app/controllers/app.go" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/iot_subscriber/app/init.go" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/iot_subscriber/app/views/App/Index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/iot_subscriber/app/views/debug.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/iot_subscriber/app/views/errors/404.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/iot_subscriber/app/views/errors/500.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/iot_subscriber/app/views/flash.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/iot_subscriber/app/views/footer.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/iot_subscriber/app/views/header.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/iot_subscriber/conf/app.conf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/iot_subscriber/conf/init_conf.go" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/iot_subscriber/conf/routes" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/iot_subscriber/lib/dbutils/client.go" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/iot_subscriber/lib/dbutils/schema.go" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/iot_subscriber/lib/formatter/formatter.go" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/iot_subscriber/lib/job_worker/init_workers.go" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/iot_subscriber/lib/job_worker/job_worker.go" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/iot_subscriber/lib/message_handler/handle_message.go" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/iot_subscriber/lib/subscriber/message.go" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/iot_subscriber/lib/subscriber/sqs_subscriber.go" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/iot_subscriber/lib/utils/conevrters.go" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/iot_subscriber/lib/utils/types.go" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/iot_subscriber/log/iot_subscriber.log" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/iot_subscriber/messages/sample.en" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/iot_subscriber/public/css/bootstrap-3.3.6.min.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/iot_subscriber/public/fonts/glyphicons-halflings-regular.ttf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/iot_subscriber/public/fonts/glyphicons-halflings-regular.woff" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/iot_subscriber/public/fonts/glyphicons-halflings-regular.woff2" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/iot_subscriber/public/img/favicon.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/iot_subscriber/public/js/bootstrap-3.3.6.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/iot_subscriber/public/js/jquery-2.2.4.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/iot_subscriber/tests/apptest.go" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/realtime_logger/.idea/libraries/GOPATH__realtime_logger_.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/realtime_logger/.idea/misc.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/realtime_logger/.idea/modules.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/realtime_logger/.idea/workspace.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/realtime_logger/asset/datetimepicker.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/realtime_logger/asset/datetimepicker.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/realtime_logger/asset/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/realtime_logger/asset/jquery-1.11.1.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/realtime_logger/asset/moment.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/realtime_logger/asset/socket.io-1.3.7.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/realtime_logger/log.db" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/realtime_logger/main.go" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/realtime_logger/realtime_logger" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/realtime_logger/realtime_logger.iml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/streetcomm.iml" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/revel.d/iot/iot" afterPath="$PROJECT_DIR$/bin/revel.d/iot/iot" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/revel.d/iot_client/iot_client" afterPath="$PROJECT_DIR$/bin/revel.d/iot_client/iot_client" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pkg/darwin_amd64/github.com/revel/modules/testrunner/app.a" afterPath="$PROJECT_DIR$/pkg/darwin_amd64/github.com/revel/modules/testrunner/app.a" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pkg/darwin_amd64/iot/lib/parser.a" afterPath="$PROJECT_DIR$/pkg/darwin_amd64/iot/lib/parser.a" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pkg/darwin_amd64/iot_client/lib/dial_tcp.a" afterPath="$PROJECT_DIR$/pkg/darwin_amd64/iot_client/lib/dial_tcp.a" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/github.com/StabbyCutyou/buffstreams" afterPath="$PROJECT_DIR$/src/github.com/StabbyCutyou/buffstreams" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/iot_subscriber/conf/app.conf" afterPath="$PROJECT_DIR$/src/iot_subscriber/conf/app.conf" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/iot_subscriber/lib/dbutils/schema.go" afterPath="$PROJECT_DIR$/src/iot_subscriber/lib/dbutils/schema.go" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/iot_subscriber/lib/message_handler/handle_message.go" afterPath="$PROJECT_DIR$/src/iot_subscriber/lib/message_handler/handle_message.go" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -251,36 +28,52 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="packets.yml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/packets.yml">
+      <file leaf-file-name="sqs_subscriber.go" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/iot_subscriber/lib/subscriber/sqs_subscriber.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="5" column="18" lean-forward="false" selection-start-line="5" selection-start-column="18" selection-end-line="5" selection-end-column="18" />
+            <state relative-caret-position="98">
+              <caret line="15" column="118" lean-forward="false" selection-start-line="15" selection-start-column="78" selection-end-line="15" selection-end-column="118" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="parser.go" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/iot/lib/parser/parser.go">
+      <file leaf-file-name="message.go" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/iot_subscriber/lib/subscriber/message.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="885">
-              <caret line="71" column="16" lean-forward="false" selection-start-line="71" selection-start-column="16" selection-end-line="71" selection-end-column="16" />
-              <folding>
-                <element signature="e#16#243#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="app.go" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/iot/app/controllers/app.go">
+      <file leaf-file-name="handle_message.go" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/iot_subscriber/lib/message_handler/handle_message.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="572">
-              <caret line="45" column="16" lean-forward="false" selection-start-line="45" selection-start-column="16" selection-end-line="45" selection-end-column="16" />
-              <folding>
-                <element signature="e#21#104#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="1275">
+              <caret line="91" column="29" lean-forward="false" selection-start-line="91" selection-start-column="29" selection-end-line="91" selection-end-column="29" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="app.conf" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/iot_subscriber/conf/app.conf">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="563">
+              <caret line="258" column="0" lean-forward="true" selection-start-line="258" selection-start-column="0" selection-end-line="258" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/iot_subscriber/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -288,68 +81,18 @@
       <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-23">
-              <caret line="23" column="8" lean-forward="true" selection-start-line="23" selection-start-column="8" selection-end-line="23" selection-end-column="8" />
+            <state relative-caret-position="315">
+              <caret line="21" column="0" lean-forward="true" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="handler.go" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/iot/lib/parser/handler.go">
+      <file leaf-file-name="schema.go" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/iot_subscriber/lib/dbutils/schema.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1275">
-              <caret line="94" column="25" lean-forward="false" selection-start-line="94" selection-start-column="25" selection-end-line="94" selection-end-column="25" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="app.go" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/iot_subscriber/app/controllers/app.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="2" column="7" lean-forward="false" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="main.go" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/iot_subscriber/app/tmp/main.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="17" column="46" lean-forward="false" selection-start-line="17" selection-start-column="37" selection-end-line="17" selection-end-column="46" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="init.go" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/iot_subscriber/app/init.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="19" column="27" lean-forward="false" selection-start-line="19" selection-start-column="27" selection-end-line="19" selection-end-column="27" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="zoneinfo.go" pinned="false" current-in-tab="false">
-        <entry file="file:///usr/local/go/src/time/zoneinfo.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4065">
-              <caret line="274" column="5" lean-forward="false" selection-start-line="274" selection-start-column="5" selection-end-line="274" selection-end-column="5" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="flag.go" pinned="false" current-in-tab="false">
-        <entry file="file:///usr/local/go/src/flag/flag.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="10575">
-              <caret line="714" column="5" lean-forward="false" selection-start-line="714" selection-start-column="5" selection-end-line="714" selection-end-column="5" />
+            <state relative-caret-position="465">
+              <caret line="34" column="24" lean-forward="false" selection-start-line="34" selection-start-column="24" selection-end-line="34" selection-end-column="24" />
               <folding />
             </state>
           </provider>
@@ -422,8 +165,6 @@
         <option value="$PROJECT_DIR$/src/iot/lib/sender/sender.go" />
         <option value="$PROJECT_DIR$/src/iot/lib/utils/conevrters.go" />
         <option value="$PROJECT_DIR$/src/iot/lib/sgu_utils/sgu_utils.go" />
-        <option value="$PROJECT_DIR$/src/iot_client/lib/dial_tcp/dial_tcp.go" />
-        <option value="$PROJECT_DIR$/packets.yml" />
         <option value="$PROJECT_DIR$/src/iot/conf/packets.go" />
         <option value="$PROJECT_DIR$/server_packets.yml" />
         <option value="$PROJECT_DIR$/src/iot/conf/routes" />
@@ -432,8 +173,15 @@
         <option value="$PROJECT_DIR$/src/iot/lib/sender/send_server_packet.go" />
         <option value="$PROJECT_DIR$/src/iot/lib/sender/handle_server_packets.go" />
         <option value="$PROJECT_DIR$/src/github.com/orcaman/concurrent-map/concurrent_map.go" />
-        <option value="$PROJECT_DIR$/src/iot/lib/parser/parser.go" />
         <option value="$PROJECT_DIR$/src/iot/lib/parser/handler.go" />
+        <option value="$PROJECT_DIR$/constants.yml" />
+        <option value="$PROJECT_DIR$/src/iot_subscriber/lib/subscriber/sqs_subscriber.go" />
+        <option value="$PROJECT_DIR$/packets.yml" />
+        <option value="$PROJECT_DIR$/src/iot/lib/parser/parser.go" />
+        <option value="$PROJECT_DIR$/src/iot_client/lib/dial_tcp/dial_tcp.go" />
+        <option value="$PROJECT_DIR$/src/iot_subscriber/lib/dbutils/schema.go" />
+        <option value="$PROJECT_DIR$/src/iot_subscriber/lib/message_handler/handle_message.go" />
+        <option value="$PROJECT_DIR$/src/iot_subscriber/conf/app.conf" />
         <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
@@ -510,6 +258,128 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="iot_subscriber" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="streetcomm" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="streetcomm" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="iot_subscriber" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lib" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="streetcomm" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="streetcomm" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="iot_subscriber" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lib" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="subscriber" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="streetcomm" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="streetcomm" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="iot_subscriber" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lib" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="message_handler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="streetcomm" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="streetcomm" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="iot_subscriber" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lib" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dbutils" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="streetcomm" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="streetcomm" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="iot_subscriber" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="conf" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -627,6 +497,94 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="iot_client" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="streetcomm" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="streetcomm" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="iot_client" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="log" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="streetcomm" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="streetcomm" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="iot_client" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lib" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="streetcomm" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="streetcomm" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="iot_client" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lib" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dial_tcp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="streetcomm" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="streetcomm" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="iot" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -720,6 +678,28 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="parser" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="streetcomm" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="streetcomm" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="iot" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="conf" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -932,8 +912,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="4" y="23" width="1276" height="777" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31497175" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -979,65 +960,7 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/github.com/revel/modules/jobs/app/views/Jobs/Status.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/github.com/revel/modules/jobs/conf/routes">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="0" lean-forward="true" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/github.com/revel/revel/server.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="385">
-          <caret line="235" column="22" lean-forward="false" selection-start-line="235" selection-start-column="18" selection-end-line="235" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/iot/app/jobs/init_app.go" />
-    <entry file="file://$PROJECT_DIR$/src/iot/app/controllers/init.go" />
-    <entry file="file://$PROJECT_DIR$/src/iot/app/tmp/main.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/iot_client/conf/app.conf">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="475">
-          <caret line="257" column="24" lean-forward="true" selection-start-line="257" selection-start-column="24" selection-end-line="257" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/github.com/revel/revel/revel.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="448">
-          <caret line="122" column="5" lean-forward="false" selection-start-line="122" selection-start-column="5" selection-end-line="122" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/github.com/revel/cmd/revel/run.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="485">
-          <caret line="135" column="23" lean-forward="true" selection-start-line="135" selection-start-column="23" selection-end-line="135" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/iot/init.go" />
-    <entry file="file://$PROJECT_DIR$/src/iot/conf/app.conf">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-389">
-          <caret line="185" column="0" lean-forward="false" selection-start-line="185" selection-start-column="0" selection-end-line="185" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/github.com/revel/config/config.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1745">
@@ -1085,6 +1008,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="28">
           <caret line="41" column="4" lean-forward="false" selection-start-line="41" selection-start-column="4" selection-end-line="41" selection-end-column="4" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1108,6 +1032,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
           <caret line="53" column="10" lean-forward="false" selection-start-line="53" selection-start-column="5" selection-end-line="53" selection-end-column="10" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1115,6 +1040,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
           <caret line="14" column="16" lean-forward="true" selection-start-line="14" selection-start-column="16" selection-end-line="14" selection-end-column="16" />
+          <folding>
+            <element signature="e#19#130#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1132,31 +1060,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/iot_client/lib/dial_tcp/dial_tcp.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="630">
-          <caret line="49" column="14" lean-forward="true" selection-start-line="49" selection-start-column="14" selection-end-line="49" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/iot/lib/utils/conevrters.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="420">
           <caret line="35" column="20" lean-forward="true" selection-start-line="35" selection-start-column="20" selection-end-line="35" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/iot/conf/packets.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="17" column="42" lean-forward="false" selection-start-line="17" selection-start-column="42" selection-end-line="17" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server_packets.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="596">
-          <caret line="49" column="0" lean-forward="false" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -1186,6 +1093,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
           <caret line="2" column="5" lean-forward="false" selection-start-line="2" selection-start-column="5" selection-end-line="2" selection-end-column="5" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1214,21 +1122,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
           <caret line="2" column="7" lean-forward="true" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/iot/lib/sender/handle_server_packets.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="530">
-          <caret line="111" column="32" lean-forward="true" selection-start-line="111" selection-start-column="32" selection-end-line="111" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/packets.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="18" lean-forward="false" selection-start-line="5" selection-start-column="18" selection-end-line="5" selection-end-column="18" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1271,24 +1164,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/iot/lib/parser/handler.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1275">
-          <caret line="94" column="25" lean-forward="false" selection-start-line="94" selection-start-column="25" selection-end-line="94" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/iot/lib/parser/parser.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="885">
-          <caret line="71" column="16" lean-forward="false" selection-start-line="71" selection-start-column="16" selection-end-line="71" selection-end-column="16" />
-          <folding>
-            <element signature="e#16#243#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/iot_subscriber/app/controllers/app.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
@@ -1297,20 +1172,158 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/iot/conf/app.conf">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="563">
+          <caret line="258" column="0" lean-forward="true" selection-start-line="258" selection-start-column="0" selection-end-line="258" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/iot/log/iot.log">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="600">
+          <caret line="40" column="22" lean-forward="false" selection-start-line="40" selection-start-column="22" selection-end-line="40" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/constants.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="56" lean-forward="false" selection-start-line="1" selection-start-column="16" selection-end-line="1" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/iot/lib/sender/handle_server_packets.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="975">
+          <caret line="72" column="22" lean-forward="false" selection-start-line="72" selection-start-column="18" selection-end-line="72" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/iot/app/controllers/app.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="572">
-          <caret line="45" column="16" lean-forward="false" selection-start-line="45" selection-start-column="16" selection-end-line="45" selection-end-column="16" />
+        <state relative-caret-position="422">
+          <caret line="35" column="33" lean-forward="false" selection-start-line="35" selection-start-column="33" selection-end-line="35" selection-end-column="33" />
           <folding>
-            <element signature="e#21#104#0" expanded="true" />
+            <element signature="e#21#104#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server_packets.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="311">
+          <caret line="30" column="39" lean-forward="true" selection-start-line="30" selection-start-column="21" selection-end-line="30" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/iot/lib/parser/handler.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="599">
+          <caret line="51" column="24" lean-forward="true" selection-start-line="51" selection-start-column="24" selection-end-line="51" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/iot/lib/parser/parser.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="392">
+          <caret line="192" column="11" lean-forward="false" selection-start-line="192" selection-start-column="11" selection-end-line="192" selection-end-column="11" />
+          <folding>
+            <element signature="e#16#251#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/iot_client/log/iot_client.log">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="540">
+          <caret line="36" column="54" lean-forward="true" selection-start-line="36" selection-start-column="54" selection-end-line="36" selection-end-column="54" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/packets.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="560">
+          <caret line="332" column="28" lean-forward="false" selection-start-line="332" selection-start-column="28" selection-end-line="332" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/iot_client/lib/dial_tcp/dial_tcp.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="222">
+          <caret line="61" column="24" lean-forward="false" selection-start-line="61" selection-start-column="24" selection-end-line="61" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/iot/conf/packets.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="226">
+          <caret line="23" column="4" lean-forward="false" selection-start-line="23" selection-start-column="4" selection-end-line="23" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/iot_subscriber/lib/subscriber/sqs_subscriber.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="98">
+          <caret line="15" column="118" lean-forward="false" selection-start-line="15" selection-start-column="78" selection-end-line="15" selection-end-column="118" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/iot_subscriber/lib/subscriber/message.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/iot_subscriber/lib/dbutils/schema.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="465">
+          <caret line="34" column="24" lean-forward="false" selection-start-line="34" selection-start-column="24" selection-end-line="34" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/iot_subscriber/lib/message_handler/handle_message.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1275">
+          <caret line="91" column="29" lean-forward="false" selection-start-line="91" selection-start-column="29" selection-end-line="91" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/iot_subscriber/conf/app.conf">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="563">
+          <caret line="258" column="0" lean-forward="true" selection-start-line="258" selection-start-column="0" selection-end-line="258" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/iot_subscriber/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-23">
-          <caret line="23" column="8" lean-forward="true" selection-start-line="23" selection-start-column="8" selection-end-line="23" selection-end-column="8" />
+        <state relative-caret-position="315">
+          <caret line="21" column="0" lean-forward="true" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
           <folding />
         </state>
       </provider>

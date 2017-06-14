@@ -1,6 +1,5 @@
-aws_access_key: AKIAJBSOCIO4LS7SWHGQ
-aws_secret_key: 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
+aws_access_key: AKIAJUP23A42CQISVMJA
+aws_secret_key: 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
 aws_region: us-west-2
 aws_topic_arn: arn:aws:sns:us-west-2:454446851063:havells-v1
 aws_queue_url: https://sqs.us-west-2.amazonaws.com/454446851063/havells-v1
-
