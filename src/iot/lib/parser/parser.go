@@ -84,7 +84,7 @@ func Wrap(conn *buffstreams.Client)map[string]interface{} {
 			repeat_parameter.Parameters[offset] = ma
 		}
 
-		read_till := utils.ToInt(math.Min(float64(off+len), float64(packet_length)))
+		read_till := utils.ToInt(math.Min(float64(off+len), float64(packet_length + 3)))
 		if val.Out_type == "int64"{
 			byte_arr = preparePacket8(packet_data[off:read_till])
 			result[val.Name] = (binary.BigEndian.Uint64([]byte(byte_arr)))
