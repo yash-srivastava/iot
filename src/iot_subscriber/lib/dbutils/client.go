@@ -11,7 +11,7 @@ var(
 )
 func InitDB(){
 	DBCONN = newClient()
-	DBCONN.AutoMigrate(&Sgu{}, &Scu{})
+	DBCONN.AutoMigrate(&Sgu{}, &Scu{}, &Attached_Schedules{})
 }
 
 func newClient() *gorm.DB{
