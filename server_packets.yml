@@ -27,3 +27,23 @@ packets:
               length: 1
 
 
+      0x8000:
+        description: Get/Set Scheduling
+        length: 43
+        parameters:
+          "scuid":
+              offset: 29
+              length: 8
+          "get_set":
+              offset: 37
+              length: 1
+          "scheduling_id":
+              offset: 38
+              length: 1
+          "pwm":
+              offset: 39
+              length: 1
+          "expr":
+              offset: 40
+
+
