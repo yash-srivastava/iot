@@ -12,6 +12,7 @@ import (
 	"iot/conf"
 	"iot/lib/publisher"
 	"sort"
+	"math"
 )
 
 
@@ -83,22 +84,25 @@ func Wrap(conn *buffstreams.Client)map[string]interface{} {
 			repeat_parameter.Parameters[offset] = ma
 		}
 
+		read_till := utils.ToInt(math.Min(float64(off+len), float64(packet_length)))
 		if val.Out_type == "int64"{
-			byte_arr = preparePacket8(packet_data[off:off+len])
+			byte_arr = preparePacket8(packet_data[off:read_till])
 			result[val.Name] = (binary.BigEndian.Uint64([]byte(byte_arr)))
+		}else if val.Out_type == "string" {
+			result[val.Name] = string(packet_data[off:read_till])
 		}else{
-			byte_arr = preparePacket(packet_data[off:off+len])
+			byte_arr = preparePacket(packet_data[off:read_till])
 			result[val.Name] = uint64(binary.BigEndian.Uint32([]byte(byte_arr)))
 		}
 
-		last_offset = off+len
+		last_offset = read_till
 
 		if strings.Contains(val.Name, "num_"){
 			iterate = utils.ToInt(result[val.Name])
 		}
 
 		if strings.Contains(offset, "length_"){
-			custom_response := HandleCustomPackets(packet_type, packet_data,off+len)
+			custom_response := HandleCustomPackets(packet_type, packet_data,read_till)
 			for ck,cv:=range custom_response {
 				result[ck] = cv
 			}

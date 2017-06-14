@@ -292,3 +292,44 @@ packets:
             out_type: int64
             length: "1"
             name: rx_signal_strength
+
+      0x8001:
+        description: Get/Set Scheduling
+        response_packet: -1
+        publish: 1
+        parameters:
+          "29":
+            in_type: string
+            out_type: int64
+            length: "1"
+            name: status
+
+          "30":
+            in_type: string
+            out_type: int64
+            length: "8"
+            name: scuid
+
+          "38":
+            in_type: string
+            out_type: int64
+            length: "1"
+            name: get_set
+
+          "39":
+            in_type: string
+            out_type: int64
+            length: "1"
+            name: scheduling_id
+
+          "40":
+            in_type: string
+            out_type: int64
+            length: "1"
+            name: pwm
+
+          "41":
+            in_type: string
+            out_type: string
+            length: "9999"
+            name: expression
