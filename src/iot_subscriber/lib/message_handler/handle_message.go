@@ -46,6 +46,10 @@ func Handle(input interface{})  {
 	}
 
 	case 0x3001:{
+		if utils.ToInt(data["status"].Value) != 0{
+			revel.INFO.Println("Packet :", packet_type, " Received with INVALID Status :", data["status"].Value)
+			return
+		}
 		incoming_scu := dbutils.Scu{}
 
 		incoming_scu.Scu_id = utils.ToUint64(data["scuid"].Value)
@@ -78,6 +82,10 @@ func Handle(input interface{})  {
 		}
 	}
 	case 0x8001:{
+		if utils.ToInt(data["status"].Value) != 0{
+			revel.INFO.Println("Packet :", packet_type, " Received with INVALID Status :", data["status"].Value)
+			return
+		}
 		incoming_scu := dbutils.Scu{}
 
 		incoming_scu.Scu_id = utils.ToUint64(data["scuid"].Value)
