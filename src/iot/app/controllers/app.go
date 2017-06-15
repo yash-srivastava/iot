@@ -5,6 +5,7 @@ import (
 	"iot/lib/sender"
 	"iot/conf"
 	"iot/lib/utils"
+	"github.com/StabbyCutyou/buffstreams"
 )
 
 type App struct {
@@ -62,5 +63,24 @@ func (c App) GetConnectedScus() revel.Result {
 		response.Success = true
 		response.Message = ""
 	}
+	return c.RenderJSON(response)
+}
+
+func (c App) GetConnectedSgus() revel.Result {
+	data := conf.Sgu{}
+	var sgus []uint64
+	if buffstreams.TcpSguMap != nil {
+		for _,v := range (buffstreams.TcpSguMap.Items()){
+			if v!= nil{
+				sgus = append(sgus,utils.ToUint64(v))
+			}
+		}
+	}
+
+	data.SguIds = sgus
+	response := sender.Response{}
+	response.Data= data
+	response.Success = true
+
 	return c.RenderJSON(response)
 }

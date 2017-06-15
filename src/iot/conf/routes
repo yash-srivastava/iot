@@ -23,3 +23,4 @@ POST   /send-8000/                              App.Send_8000
 
 POST   /sgu-connected/                          App.IsSguConnected
 POST   /connected-scus/                         App.GetConnectedScus
+POST   /connected-sgus/                         App.GetConnectedSgus

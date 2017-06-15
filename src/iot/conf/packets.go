@@ -52,6 +52,10 @@ type Scu struct {
 	ScuIds     []uint64 `json:"scu_ids"`
 }
 
+type Sgu struct {
+	SguIds     []uint64 `json:"sgu_ids"`
+}
+
 type Server_packet struct {
 	Delim    int `json:"delim" yaml:"delim"`
 	Response_packets  map[int]Response_packets `json:"packets" yaml:"packets"`

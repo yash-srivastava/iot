@@ -66,6 +66,8 @@ func Wrap(conn *buffstreams.Client)map[string]interface{} {
 	client,_ := buffstreams.TcpClients.Get(conn.Address)
 	conf.SGU_TCP_CONNECTION.Set(strconv.FormatUint(sgu_id,10),client)
 
+	buffstreams.TcpSguMap.Set(conn.Address,strconv.FormatUint(sgu_id,10))
+
 
 	var repeat_parameter conf.Packets
 	repeat_parameter.Parameters = make(map[string]conf.Parameters)
