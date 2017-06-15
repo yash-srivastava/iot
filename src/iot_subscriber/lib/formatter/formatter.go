@@ -1,11 +1,13 @@
 package formatter
 
 import (
-	"iot/lib/utils"
+	"iot_subscriber/lib/utils"
 	"encoding/binary"
 	"encoding/hex"
 	"strings"
-	"iot_client/lib/subscriber"
+	"iot_subscriber/lib/subscriber"
+	"encoding/base64"
+	"github.com/revel/revel"
 )
 
 func GetMessageFromInterface(data interface{}) map[string]subscriber.Data  {
@@ -14,7 +16,16 @@ func GetMessageFromInterface(data interface{}) map[string]subscriber.Data  {
 	for k,v:=range msg_attr{
 		tmp := subscriber.Data{}
 		converted := v.(map[string]interface{})
-		tmp.Value = utils.ToStr(converted["Value"])
+		str_val := converted["Value"].(string)
+		revel.INFO.Println(str_val)
+
+		data, err := base64.StdEncoding.DecodeString(str_val)
+
+		if err != nil {
+			revel.ERROR.Println(err.Error())
+		}
+		revel.INFO.Println(string(data[:]))
+		tmp.Value = string(data[:])
 		resp[k] = tmp
 	}
 	return resp

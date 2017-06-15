@@ -15,8 +15,9 @@ func Pub(msg map[string]interface{}){
 	result := make(map[string]*sns.MessageAttributeValue)
 	for k,v:=range(msg){
 		tmp := sns.MessageAttributeValue{}
-		tmp.StringValue = aws.String(utils.ToStr(v))
-		tmp.DataType = aws.String("String")
+		tmp.BinaryValue = []byte(utils.ToStr(v))
+		//tmp.StringValue = aws.String(utils.ToStr(v))
+		tmp.DataType = aws.String("Binary")
 		result[k] = &tmp
 	}
 
