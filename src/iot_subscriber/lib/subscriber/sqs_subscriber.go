@@ -7,13 +7,13 @@ import (
 	"github.com/aws/aws-sdk-go/aws/credentials"
 	"encoding/json"
 	"github.com/revel/revel"
-	"github.com/benmanns/goworker"
+	"github.com/jrallison/go-workers"
 )
 
 func SqsSubscribe(){
 	sess := session.New(&aws.Config{
 		Region:      aws.String("us-west-2"),
-		Credentials: credentials.NewStaticCredentials("AKIAJ7YZ4G6NGJES7DGQ","uDgYUZdgWgwH9ipIZQetqIQPxDXrLeyfOWtAqCH7",""),
+		Credentials: credentials.NewStaticCredentials("AKIAIWLK5IJ76Z5MJCYQ","C18UQW21ZmNA8m+S/ypLWBSOFa7sRvnEVNn+7EPi",""),
 		MaxRetries:  aws.Int(5),
 	})
 
@@ -51,13 +51,11 @@ func SqsSubscribe(){
 					resp[k] = tmp
 				}*/
 
-				params := make([]interface{}, 2)
-				params[0] = "save_in_db"
-				params[1] = ma["MessageAttributes"]
+				params := make(map[string]interface{})
+				params["action"] = "save_in_db"
+				params["data"] = ma["MessageAttributes"]
 
-				payload := goworker.Payload{"subscribers", params}
-				job := goworker.Job{"packet_subscriber_queue", payload}
-				goworker.Enqueue(&job)
+				workers.Enqueue("packet_subscriber_queue", "save_in_db", params)
 				revel.INFO.Println("Job Enqueued")
 
 				// Delete Message

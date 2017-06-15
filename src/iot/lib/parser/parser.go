@@ -5,7 +5,6 @@ import (
 	"encoding/binary"
 	"strings"
 	"github.com/StabbyCutyou/buffstreams"
-	"github.com/benmanns/goworker"
 	"iot/lib/formatter"
 	"github.com/revel/revel"
 	"iot/lib/utils"
@@ -13,6 +12,7 @@ import (
 	"iot/lib/publisher"
 	"sort"
 	"math"
+	"github.com/jrallison/go-workers"
 )
 
 
@@ -176,16 +176,18 @@ func Wrap(conn *buffstreams.Client)map[string]interface{} {
 
 	if packet_description[packet_type].Response_packet != -1{
 
-		params := make([]interface{}, 3)
-		params[0] = "send_response_packets"
-		params[1] = packet_description[packet_type].Response_packet
-		params[2] = incoming
+		params := make(map[string]interface{})
+		params["action"] = "send_response_packets"
+		params["packet_type"] = packet_description[packet_type].Response_packet
+		params["incoming"] = incoming
 
-		payload := goworker.Payload{"packets", params}
+		workers.Enqueue("packets", "send_response_packets", params)
+
+		/*payload := goworker.Payload{"packets", params}
 		job := goworker.Job{"packet_queue", payload}
-		goworker.Enqueue(&job)
+		goworker.Enqueue(&job)*/
 
-		revel.INFO.Println("Response Packet:", formatter.Prettify(params[1]), "Enqueued")
+		revel.INFO.Println("Response Packet:", formatter.Prettify(params["packet_type"]), "Enqueued")
 	}
 
 	revel.WARN.Println(result)

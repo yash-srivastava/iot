@@ -2,11 +2,11 @@ package sender
 
 import (
 	"iot/lib/formatter"
-	"github.com/benmanns/goworker"
 	"time"
 	"iot/lib/utils"
 	"iot/conf"
 	"strings"
+	"github.com/jrallison/go-workers"
 )
 
 type Response struct {
@@ -70,7 +70,7 @@ func HandlePacket(packet_type int, params interface{}) Response{
 }
 
 func send_with_retry_3000(params Packet_3000){
-	job_params := make([]interface{}, 2)
+	job_params := make(map[string]interface{})
 
 	sleep_du,_ := time.ParseDuration(utils.ToStr(params.RetryDelay)+"s")
 
@@ -83,12 +83,10 @@ func send_with_retry_3000(params Packet_3000){
 			break
 		}
 
-		job_params[0] = "send_3000"
-		job_params[1] = params
+		job_params["action"] = "send_3000"
+		job_params["params"] = params
 
-		payload := goworker.Payload{"packets", job_params}
-		job := goworker.Job{"sender_queue", payload}
-		goworker.Enqueue(&job)
+		workers.Enqueue("sender_queue", "send_3000", job_params)
 
 		time.Sleep(sleep_du)
 	}
@@ -105,12 +103,11 @@ func Get300Hash(params Packet_3000) string{
 }
 
 func send8000(params Packet_8000){
-	job_params := make([]interface{}, 2)
-	job_params[0] = "send_8000"
-	job_params[1] = params
+	job_params := make(map[string]interface{}, 2)
+	job_params["action"] = "send_8000"
+	job_params["params"] = params
 
-	payload := goworker.Payload{"packets", job_params}
-	job := goworker.Job{"sender_queue", payload}
-	goworker.Enqueue(&job)
+	workers.Enqueue("sender_queue", "send_8000", job_params)
+
 
 }

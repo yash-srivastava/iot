@@ -4,7 +4,8 @@ import (
 	"github.com/StabbyCutyou/buffstreams"
 	"fmt"
 	"strconv"
-	"github.com/benmanns/goworker"
+	//"github.com/benmanns/goworker"
+	"github.com/jrallison/go-workers"
 )
 
 var (
@@ -34,12 +35,11 @@ func GetConnectionManager()*buffstreams.Manager{
 func HandleTcpRequest(conn buffstreams.Client) error {
 	var duplicate buffstreams.Client
 	duplicate = conn
-	params := make([]interface{}, 2)
-	params[0] = "parse_sgu_packets"
-	params[1] = duplicate
+	params := make(map[string]interface{})
+	params["action"] = "parse_sgu_packets"
+	params["client"] = duplicate
 
-	payload := goworker.Payload{"packets", params}
-	job := goworker.Job{"packet_queue", payload}
-	goworker.Enqueue(&job)
+	workers.Enqueue("packets","parse_sgu_packets", params)
+
 	return nil
 }

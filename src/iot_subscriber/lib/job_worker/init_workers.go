@@ -1,24 +1,24 @@
 package job_worker
 
 import (
-	"github.com/benmanns/goworker"
-	"fmt"
+	"github.com/jrallison/go-workers"
 )
 
 func Init()  {
-	settings := goworker.WorkerSettings{
-		URI:            "redis://localhost:6379/",
-		Connections:    10,
-		Queues:         []string{"packet_subscriber_queue"},
-		UseNumber:      true,
-		ExitOnComplete: false,
-		Concurrency:    2,
-		Namespace:      "goiot_subscriber:",
-		Interval:       5.0,
-	}
-	goworker.SetSettings(settings)
-	goworker.Register("subscribers", ProcessData)
-	if err := goworker.Work(); err != nil {
-		fmt.Println("Error:", err)
-	}
+	workers.Configure(map[string]string{
+		// location of redis instance
+		"server":  "localhost:6379",
+		// instance of the database
+		"database":  "1",
+		// number of connections to keep open with redis
+		"pool":    "5",
+		// unique process id for this instance of workers (for proper recovery of inprogress jobs on crash)
+		"process": "iot_subscriber",
+	})
+
+	workers.Process("packet_subscriber_queue", ProcessData,2)
+	go workers.StatsServer(8081)
+
+	// Blocks until process is told to exit via unix signal
+	workers.Run()
 }
