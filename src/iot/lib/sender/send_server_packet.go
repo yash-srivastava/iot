@@ -84,7 +84,6 @@ func SendServerPacket(packet_type int, params interface{}){
 
 	}
 	case 0x8000:{
-		revel.INFO.Println("asasa")
 		packet := Packet_8000{}
 		err := formatter.GetStructFromInterface(params, &packet)
 
