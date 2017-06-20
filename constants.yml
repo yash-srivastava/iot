@@ -3,3 +3,4 @@ aws_secret_key: C18UQW21ZmNA8m+S/ypLWBSOFa7sRvnEVNn+7EPi
 aws_region: us-west-2
 aws_topic_arn: arn:aws:sns:us-west-2:454446851063:havells-v1
 aws_queue_url: https://sqs.us-west-2.amazonaws.com/454446851063/havells-v1
+logentries: f0c9d151-192c-4c04-96b9-212ca3b25276

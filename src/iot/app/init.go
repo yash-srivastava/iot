@@ -6,6 +6,7 @@ import (
 	"iot/lib/job_worker"
 	"time"
 	"iot/conf"
+	"github.com/bsphere/le_go"
 )
 
 var (
@@ -26,9 +27,20 @@ func InitForConn(){
 	conf.Init()
 }
 
+func SetLogger()  {
+	le, err := le_go.Connect(conf.CONSTANTS["logentries"])
+	if err != nil {
+		panic(err)
+	}
+	revel.INFO.SetOutput(le)
+	revel.WARN.SetOutput(le)
+	revel.ERROR.SetOutput(le)
+}
+
 func StartupScript() {
 	SetTimeFormat()
 	InitForConn()
+	SetLogger()
 	go job_worker.Init()
 	go tcp_server.Start_tcp_server()
 }
