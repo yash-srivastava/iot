@@ -4,25 +4,25 @@ packets:
         description: Get/Set Digital Output State
         length: 43
         parameters:
-          "scuid":
+          "ScuId":
               offset: 29
               length: 8
-          "get_set":
+          "GetSet":
               offset: 37
               length: 1
-          "pwm":
+          "Pwm":
               offset: 38
               length: 1
-          "op1":
+          "Op1":
               offset: 39
               length: 1
-          "op2":
+          "Op2":
               offset: 40
               length: 1
-          "op3":
+          "Op3":
               offset: 41
               length: 1
-          "op4":
+          "Op4":
               offset: 42
               length: 1
 
@@ -31,19 +31,19 @@ packets:
         description: Get/Set Scheduling
         length: 43
         parameters:
-          "scuid":
+          "ScuId":
               offset: 29
               length: 8
-          "get_set":
+          "GetSet":
               offset: 37
               length: 1
-          "scheduling_id":
+          "SchedulingId":
               offset: 38
               length: 1
-          "pwm":
+          "Pwm":
               offset: 39
               length: 1
-          "expr":
+          "Expr":
               offset: 40
 
 

@@ -4,6 +4,8 @@ import (
 	"iot/lib/formatter"
 	"github.com/revel/revel"
 	"iot/conf"
+	"gopkg.in/oleiade/reflections.v1"
+	"iot/lib/utils"
 )
 
 func SendServerPacket(packet_type int, params interface{}){
@@ -47,32 +49,22 @@ func SendServerPacket(packet_type int, params interface{}){
 		response := AddCommonParameters(byte(delim),sgu_id,uint64(seq_no),length,packet_type)
 
 		for k,v := range packet_description[packet_type].Response_parameters {
-			if k == "scuid"{
-				val := convertToByteArray(packet.ScuId, 8)
-				response = add_byte_array_to_response(v.Offset, v.Length,val, response)
-			}else if k == "get_set"{
-				val := convertToByteArray(uint64(packet.GetSet), 1)
-				response = add_byte_array_to_response(v.Offset, v.Length,val, response)
-			}
-			if packet.GetSet !=0 {
-				if k == "pwm"{
-					val := convertToByteArray(uint64(packet.Pwm), 1)
-					response = add_byte_array_to_response(v.Offset, v.Length,val, response)
-				}else if k == "op1"{
-					val := convertToByteArray(uint64(packet.Op1), 1)
-					response = add_byte_array_to_response(v.Offset, v.Length,val, response)
-				}else if k == "op2"{
-					val := convertToByteArray(uint64(packet.Op2), 1)
-					response = add_byte_array_to_response(v.Offset, v.Length,val, response)
-				}else if k == "op3"{
-					val := convertToByteArray(uint64(packet.Op3), 1)
-					response = add_byte_array_to_response(v.Offset, v.Length,val, response)
-				}else if k == "op4"{
-					val := convertToByteArray(uint64(packet.Op4), 1)
-					response = add_byte_array_to_response(v.Offset, v.Length,val, response)
-				}
+			val,err := reflections.GetField(packet, k)
+			if err != nil {
+				revel.INFO.Println(k,"not present for packet_type", utils.ToStr(packet_type))
+				panic(k+" not present for packet_type " + utils.ToStr(packet_type))
 			}
 
+			uint_val := utils.ToUint64(val)
+			byte_val := convertToByteArray(uint_val, v.Length)
+
+			if k == "Pwm" || k == "Op1" || k == "Op2" || k == "Op3" || k == "Op4"{
+				if packet.GetSet !=0{
+					response = add_byte_array_to_response(v.Offset, v.Length,byte_val, response)
+				}
+			}else {
+				response = add_byte_array_to_response(v.Offset, v.Length,byte_val, response)
+			}
 
 		}
 		revel.INFO.Println("Sending Packet:","packet_type=>",formatter.Prettify(packet_type),"| description=>",packet_description[packet_type].Description,"| sgu_id=>",formatter.Prettify(sgu_id))
@@ -123,26 +115,22 @@ func SendServerPacket(packet_type int, params interface{}){
 		response := AddCommonParameters(byte(delim),sgu_id,uint64(seq_no),length,packet_type)
 
 		for k,v := range packet_description[packet_type].Response_parameters {
-			if k == "scuid"{
-				val := convertToByteArray(packet.ScuId, 8)
-				response = add_byte_array_to_response(v.Offset, v.Length,val, response)
-			}else if k == "get_set"{
-				val := convertToByteArray(uint64(packet.GetSet), 1)
-				response = add_byte_array_to_response(v.Offset, v.Length,val, response)
-			}else if k == "pwm"{
-				val := convertToByteArray(uint64(packet.Pwm), 1)
-				response = add_byte_array_to_response(v.Offset, v.Length,val, response)
-			}else if k == "scheduling_id"{
-				val := convertToByteArray(uint64(packet.SchedulingId), 1)
-				response = add_byte_array_to_response(v.Offset, v.Length,val, response)
-			}
-			if packet.GetSet !=0 {
-				if k == "expr"{
+
+			if k == "Expr"{
+				if packet.GetSet !=0{
 					response = add_byte_array_to_response(v.Offset, len(exprArr), exprArr, response)
 				}
+			}else{
+				val,err := reflections.GetField(packet, k)
+				if err != nil {
+					revel.INFO.Println(k,"not present for packet_type", utils.ToStr(packet_type))
+					panic(k+" not present for packet_type " + utils.ToStr(packet_type))
+				}
+
+				uint_val := utils.ToUint64(val)
+				byte_val := convertToByteArray(uint_val, v.Length)
+				response = add_byte_array_to_response(v.Offset, v.Length,byte_val, response)
 			}
-
-
 		}
 		revel.INFO.Println("Sending Packet:","packet_type=>",formatter.Prettify(packet_type),"| description=>",packet_description[packet_type].Description,"| sgu_id=>",formatter.Prettify(sgu_id))
 		revel.WARN.Println("Packet:",packet)
