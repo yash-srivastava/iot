@@ -6,7 +6,6 @@ import (
 	"github.com/aws/aws-sdk-go/aws"
 	"iot/lib/utils"
 	"github.com/aws/aws-sdk-go/aws/credentials"
-	"iot/conf"
 	"github.com/revel/revel"
 )
 
@@ -22,8 +21,8 @@ func Pub(msg map[string]interface{}){
 	}
 
 	sess := session.New(&aws.Config{
-		Region:      aws.String(conf.CONSTANTS["aws_region"]),
-		Credentials: credentials.NewStaticCredentials(conf.CONSTANTS["aws_access_key"],conf.CONSTANTS["aws_secret_key"],""),
+		Region:      aws.String(revel.Config.StringDefault("aws_region", "aws_region")),
+		Credentials: credentials.NewStaticCredentials(revel.Config.StringDefault("aws_access_key", "aws_access_key"),revel.Config.StringDefault("aws_secret_key", "aws_secret_key"),""),
 		MaxRetries:  aws.Int(5),
 	})
 
@@ -33,7 +32,7 @@ func Pub(msg map[string]interface{}){
 	params := &sns.PublishInput{
 		MessageAttributes: result,
 		Message: aws.String("Called"), // This is the message itself (can be XML / JSON / Text - anything you want)
-		TopicArn: aws.String(conf.CONSTANTS["aws_topic_arn"]),  //Get this from the Topic in the AWS console.
+		TopicArn: aws.String(revel.Config.StringDefault("aws_topic_arn", "aws_topic_arn")),  //Get this from the Topic in the AWS console.
 	}
 
 	resp, err := svc.Publish(params)   //Call to puclish the message

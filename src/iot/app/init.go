@@ -28,13 +28,17 @@ func InitForConn(){
 }
 
 func SetLogger()  {
-	le, err := le_go.Connect(conf.CONSTANTS["logentries"])
-	if err != nil {
-		panic(err)
+	token := revel.Config.StringDefault("logentries","")
+	if token!=""{
+		le, err := le_go.Connect(revel.Config.StringDefault("logentries",""))
+		if err != nil {
+			panic(err)
+		}
+		revel.INFO.SetOutput(le)
+		revel.WARN.SetOutput(le)
+		revel.ERROR.SetOutput(le)
 	}
-	revel.INFO.SetOutput(le)
-	revel.WARN.SetOutput(le)
-	revel.ERROR.SetOutput(le)
+
 }
 
 func StartupScript() {

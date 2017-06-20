@@ -12,15 +12,15 @@ import (
 
 func SqsSubscribe(){
 	sess := session.New(&aws.Config{
-		Region:      aws.String("us-west-2"),
-		Credentials: credentials.NewStaticCredentials("AKIAIWLK5IJ76Z5MJCYQ","C18UQW21ZmNA8m+S/ypLWBSOFa7sRvnEVNn+7EPi",""),
+		Region:      aws.String(revel.Config.StringDefault("aws_region", "aws_region")),
+		Credentials: credentials.NewStaticCredentials(revel.Config.StringDefault("aws_access_key", "aws_access_key"),revel.Config.StringDefault("aws_secret_key", "aws_secret_key"),""),
 		MaxRetries:  aws.Int(5),
 	})
 
 	q := sqs.New(sess)
 
 	receive_params := &sqs.ReceiveMessageInput{
-		QueueUrl:            aws.String("https://sqs.us-west-2.amazonaws.com/454446851063/havells-v1"),
+		QueueUrl:            aws.String(revel.Config.StringDefault("aws_queue_url", "aws_queue_url")),
 		MaxNumberOfMessages: aws.Int64(10),
 		VisibilityTimeout:   aws.Int64(30),
 		WaitTimeSeconds:     aws.Int64(20),
@@ -60,7 +60,7 @@ func SqsSubscribe(){
 
 				// Delete Message
 				delete_params := &sqs.DeleteMessageInput{
-					QueueUrl:      aws.String("https://sqs.us-west-2.amazonaws.com/454446851063/havells-v1"),
+					QueueUrl:      aws.String(revel.Config.StringDefault("aws_queue_url", "aws_queue_url")),
 					ReceiptHandle: msg.ReceiptHandle,
 
 				}
